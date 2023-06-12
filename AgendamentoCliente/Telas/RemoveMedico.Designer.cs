@@ -28,75 +28,137 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbl1 = new Label();
-            txbNomeMedico = new TextBox();
-            btnRemover = new Button();
-            btnCancelar = new Button();
-            btnPesquisar = new Button();
-            SuspendLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.txbNomeMedico = new System.Windows.Forms.TextBox();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.visualizaMedico = new System.Windows.Forms.DataGridView();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicoExcluido = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.visualizaMedico)).BeginInit();
+            this.SuspendLayout();
             // 
             // lbl1
             // 
-            lbl1.AutoSize = true;
-            lbl1.Location = new Point(55, 61);
-            lbl1.Name = "lbl1";
-            lbl1.Size = new Size(103, 15);
-            lbl1.TabIndex = 2;
-            lbl1.Text = "Nome do Médico:";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Location = new System.Drawing.Point(63, 81);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(129, 20);
+            this.lbl1.TabIndex = 2;
+            this.lbl1.Text = "Nome do Médico:";
+            this.lbl1.Click += new System.EventHandler(this.lbl1_Click);
             // 
             // txbNomeMedico
             // 
-            txbNomeMedico.Location = new Point(164, 58);
-            txbNomeMedico.Name = "txbNomeMedico";
-            txbNomeMedico.Size = new Size(247, 23);
-            txbNomeMedico.TabIndex = 5;
+            this.txbNomeMedico.Location = new System.Drawing.Point(187, 77);
+            this.txbNomeMedico.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbNomeMedico.Name = "txbNomeMedico";
+            this.txbNomeMedico.Size = new System.Drawing.Size(282, 27);
+            this.txbNomeMedico.TabIndex = 5;
             // 
             // btnRemover
             // 
-            btnRemover.Location = new Point(164, 229);
-            btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(101, 23);
-            btnRemover.TabIndex = 7;
-            btnRemover.Text = "Remover";
-            btnRemover.UseVisualStyleBackColor = true;
-            btnRemover.Click += btnRemover_Click;
+            this.btnRemover.Location = new System.Drawing.Point(187, 305);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(115, 31);
+            this.btnRemover.TabIndex = 7;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click_1);
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(310, 229);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(101, 23);
-            btnCancelar.TabIndex = 8;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            this.btnCancelar.Location = new System.Drawing.Point(354, 305);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(115, 31);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnPesquisar
             // 
-            btnPesquisar.Location = new Point(450, 58);
-            btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(75, 23);
-            btnPesquisar.TabIndex = 9;
-            btnPesquisar.Text = "Pesquisar";
-            btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Location = new System.Drawing.Point(514, 77);
+            this.btnPesquisar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(86, 31);
+            this.btnPesquisar.TabIndex = 9;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // visualizaMedico
+            // 
+            this.visualizaMedico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.visualizaMedico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nome,
+            this.Id});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.visualizaMedico.DefaultCellStyle = dataGridViewCellStyle2;
+            this.visualizaMedico.Location = new System.Drawing.Point(12, 115);
+            this.visualizaMedico.Name = "visualizaMedico";
+            this.visualizaMedico.RowHeadersWidth = 51;
+            this.visualizaMedico.RowTemplate.Height = 45;
+            this.visualizaMedico.Size = new System.Drawing.Size(609, 107);
+            this.visualizaMedico.TabIndex = 10;
+            this.visualizaMedico.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Nome
+            // 
+            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nome.HeaderText = "Nome";
+            this.Nome.MinimumWidth = 6;
+            this.Nome.Name = "Nome";
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            // 
+            // medicoExcluido
+            // 
+            this.medicoExcluido.AutoSize = true;
+            this.medicoExcluido.Location = new System.Drawing.Point(213, 255);
+            this.medicoExcluido.Name = "medicoExcluido";
+            this.medicoExcluido.Size = new System.Drawing.Size(232, 20);
+            this.medicoExcluido.TabIndex = 11;
+            this.medicoExcluido.Text = "Médico foi excluído com sucesso!";
+            this.medicoExcluido.Visible = false;
             // 
             // RemoveMedico
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(554, 306);
-            Controls.Add(btnPesquisar);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnRemover);
-            Controls.Add(txbNomeMedico);
-            Controls.Add(lbl1);
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "RemoveMedico";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Remover";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(633, 408);
+            this.Controls.Add(this.medicoExcluido);
+            this.Controls.Add(this.visualizaMedico);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnRemover);
+            this.Controls.Add(this.txbNomeMedico);
+            this.Controls.Add(this.lbl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "RemoveMedico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Remover";
+            ((System.ComponentModel.ISupportInitialize)(this.visualizaMedico)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -106,5 +168,9 @@
         private Button btnRemover;
         private Button btnCancelar;
         private Button btnPesquisar;
+        private DataGridView visualizaMedico;
+        private DataGridViewTextBoxColumn Nome;
+        private DataGridViewTextBoxColumn Id;
+        private Label medicoExcluido;
     }
 }

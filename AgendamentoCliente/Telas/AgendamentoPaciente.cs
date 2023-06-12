@@ -1,9 +1,14 @@
-﻿using System;
+﻿using AgendamentoCliente.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,24 +17,68 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace AgendamentoCliente.Telas
 {
     public partial class AgendamentoPaciente : Form
+
+
     {
+
         public AgendamentoPaciente()
         {
             InitializeComponent();
 
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy HH:mm";
+
+
+            autocompletes();
+        }
+
+        public void autocompletes()
+        {
+
             txbNomePaciente.AutoCompleteMode = AutoCompleteMode.Suggest;
             txbNomePaciente.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txbNomePaciente.AutoCompleteCustomSource.AddRange(new string[] {
-                "Gabriel Vilarino Gonçalves",
-                "Gabriel Almeida",
-                "Luiz Carlos",
-                "Luiz Fernando",
-                "Gabriel Santos",
-                "Gabriel Eduardo"});
+
+            adicionaAutoCompletePaciente();
+            adicionaAutoCompleteMedico();
 
             txbNomeMedico.AutoCompleteMode = AutoCompleteMode.Suggest;
             txbNomeMedico.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txbNomeMedico.AutoCompleteCustomSource.AddRange(new string[] { "medico1", "medico2", "medico3" });
+        }
+
+        private async void adicionaAutoCompletePaciente()
+        {
+            HttpClient http = new HttpClient();
+            HttpResponseMessage response = await http.GetAsync("http://localhost:8080/api/v1/paciente");
+
+            string v = await response.Content.ReadAsStringAsync();
+            List<Paciente> pacientes = JsonConvert.DeserializeObject<List<Paciente>>(v);
+
+            List<string> nomes = new List<string>();
+
+            pacientes.ForEach(paciente =>
+            {
+                nomes.Add(paciente.NomeCompleto.ToString());
+            });
+
+            txbNomePaciente.AutoCompleteCustomSource.AddRange(nomes.ToArray());
+        }
+
+  private async void adicionaAutoCompleteMedico()
+        {
+            HttpClient http = new HttpClient();
+            HttpResponseMessage response = await http.GetAsync("http://localhost:8080/api/v1/medico");
+
+            string v = await response.Content.ReadAsStringAsync();
+            List<Medico> medicos = JsonConvert.DeserializeObject<List<Medico>>(v);
+
+            List<string> nomes = new List<string>();
+
+            medicos.ForEach(medico =>
+            {
+                nomes.Add(medico.NomeCompleto.ToString());
+            });
+
+            txbNomeMedico.AutoCompleteCustomSource.AddRange(nomes.ToArray());
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -64,6 +113,50 @@ namespace AgendamentoCliente.Telas
         }
 
         private void AgendamentoPaciente_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void AgendamentoPaciente_Load_1(object sender, EventArgs e)
+        {
+            autocompletes();
+
+        }
+
+        private async void btnAgendar_Click_1(object sender, EventArgs e)
+        {
+
+            string nomePaciente = txbNomePaciente.Text;
+            string nomeMedico = txbNomeMedico.Text;
+            string data = dateTimePicker1.Text;
+
+            Debug.WriteLine(nomePaciente);
+
+            HttpClient http = new HttpClient();
+
+
+            Dictionary<string, string> formData = new Dictionary<string, string>
+        {
+                {"nomePaciente", nomePaciente },
+                {"nomeMedico", nomeMedico },
+                {"dataHora", data }
+        };
+            var content = new FormUrlEncodedContent(formData);
+            try
+            {
+                HttpResponseMessage response = await http.PostAsync("http://localhost:8080/api/v1/atendimento", content);
+                string stringResponse = await response.Content.ReadAsStringAsync();
+
+                Atendimento atendimento = JsonConvert.DeserializeObject<Atendimento>(stringResponse);
+
+                Debug.WriteLine(atendimento.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void txbNomePaciente_TextChanged_1(object sender, EventArgs e)
         {
 
         }

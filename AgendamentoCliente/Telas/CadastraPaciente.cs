@@ -67,5 +67,10 @@ namespace AgendamentoCliente.Telas
         {
 
         }
+
+        private void txbNomePaciente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

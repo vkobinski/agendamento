@@ -28,100 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbl1 = new Label();
-            txbNomeMedico = new TextBox();
-            lbl2 = new Label();
-            btnFoto = new Button();
-            btnCadastrar = new Button();
-            btnCancelar = new Button();
-            fotoMedico = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)fotoMedico).BeginInit();
-            SuspendLayout();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.txbNomeMedico = new System.Windows.Forms.TextBox();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.btnFoto = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.fotoMedico = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMedico)).BeginInit();
+            this.SuspendLayout();
             // 
             // lbl1
             // 
-            lbl1.AutoSize = true;
-            lbl1.Location = new Point(55, 61);
-            lbl1.Name = "lbl1";
-            lbl1.Size = new Size(103, 15);
-            lbl1.TabIndex = 2;
-            lbl1.Text = "Nome do Médico:";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Location = new System.Drawing.Point(63, 81);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(129, 20);
+            this.lbl1.TabIndex = 2;
+            this.lbl1.Text = "Nome do Médico:";
             // 
             // txbNomeMedico
             // 
-            txbNomeMedico.Location = new Point(164, 58);
-            txbNomeMedico.Name = "txbNomeMedico";
-            txbNomeMedico.Size = new Size(247, 23);
-            txbNomeMedico.TabIndex = 5;
+            this.txbNomeMedico.Location = new System.Drawing.Point(187, 77);
+            this.txbNomeMedico.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbNomeMedico.Name = "txbNomeMedico";
+            this.txbNomeMedico.Size = new System.Drawing.Size(282, 27);
+            this.txbNomeMedico.TabIndex = 5;
             // 
             // lbl2
             // 
-            lbl2.AutoSize = true;
-            lbl2.Location = new Point(124, 122);
-            lbl2.Name = "lbl2";
-            lbl2.Size = new Size(34, 15);
-            lbl2.TabIndex = 6;
-            lbl2.Text = "Foto:";
+            this.lbl2.AutoSize = true;
+            this.lbl2.Location = new System.Drawing.Point(142, 163);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(42, 20);
+            this.lbl2.TabIndex = 6;
+            this.lbl2.Text = "Foto:";
             // 
             // btnFoto
             // 
-            btnFoto.Location = new Point(336, 122);
-            btnFoto.Name = "btnFoto";
-            btnFoto.Size = new Size(75, 23);
-            btnFoto.TabIndex = 7;
-            btnFoto.Text = "Adicionar";
-            btnFoto.UseVisualStyleBackColor = true;
-            btnFoto.Click += btnFoto_Click;
+            this.btnFoto.Location = new System.Drawing.Point(384, 163);
+            this.btnFoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFoto.Name = "btnFoto";
+            this.btnFoto.Size = new System.Drawing.Size(86, 31);
+            this.btnFoto.TabIndex = 7;
+            this.btnFoto.Text = "Adicionar";
+            this.btnFoto.UseVisualStyleBackColor = true;
+            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click_1);
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(164, 235);
-            btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(101, 23);
-            btnCadastrar.TabIndex = 8;
-            btnCadastrar.Text = "Cadastrar";
-            btnCadastrar.UseVisualStyleBackColor = true;
-            btnCadastrar.Click += btnCadastrar_Click;
+            this.btnCadastrar.Location = new System.Drawing.Point(187, 313);
+            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(115, 31);
+            this.btnCadastrar.TabIndex = 8;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click_1);
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(310, 235);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(101, 23);
-            btnCancelar.TabIndex = 9;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            this.btnCancelar.Location = new System.Drawing.Point(354, 313);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(115, 31);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
             // 
             // fotoMedico
             // 
-            fotoMedico.Location = new Point(175, 102);
-            fotoMedico.Name = "fotoMedico";
-            fotoMedico.Size = new Size(90, 86);
-            fotoMedico.SizeMode = PictureBoxSizeMode.StretchImage;
-            fotoMedico.TabIndex = 10;
-            fotoMedico.TabStop = false;
+            this.fotoMedico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fotoMedico.Location = new System.Drawing.Point(203, 139);
+            this.fotoMedico.Name = "fotoMedico";
+            this.fotoMedico.Size = new System.Drawing.Size(175, 140);
+            this.fotoMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fotoMedico.TabIndex = 10;
+            this.fotoMedico.TabStop = false;
+            this.fotoMedico.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // CadastraMedico
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(554, 306);
-            Controls.Add(fotoMedico);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnCadastrar);
-            Controls.Add(btnFoto);
-            Controls.Add(lbl2);
-            Controls.Add(txbNomeMedico);
-            Controls.Add(lbl1);
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "CadastraMedico";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cadastrar";
-            ((System.ComponentModel.ISupportInitialize)fotoMedico).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(633, 408);
+            this.Controls.Add(this.fotoMedico);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.btnFoto);
+            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.txbNomeMedico);
+            this.Controls.Add(this.lbl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "CadastraMedico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastrar";
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMedico)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -132,6 +147,7 @@
         private Button btnFoto;
         private Button btnCadastrar;
         private Button btnCancelar;
+        private FileSystemWatcher fileSystemWatcher1;
         private PictureBox fotoMedico;
     }
 }

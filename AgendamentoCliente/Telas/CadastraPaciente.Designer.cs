@@ -28,85 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbl1 = new Label();
-            txbNomePaciente = new TextBox();
-            lbl2 = new Label();
-            dataNascimento = new DateTimePicker();
-            btnConfirmar = new Button();
-            btnCancelar = new Button();
-            SuspendLayout();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.txbNomePaciente = new System.Windows.Forms.TextBox();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.dataNascimento = new System.Windows.Forms.DateTimePicker();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // lbl1
             // 
-            lbl1.AutoSize = true;
-            lbl1.Location = new Point(55, 61);
-            lbl1.Name = "lbl1";
-            lbl1.Size = new Size(108, 15);
-            lbl1.TabIndex = 1;
-            lbl1.Text = "Nome do Paciente:";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Location = new System.Drawing.Point(63, 81);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(134, 20);
+            this.lbl1.TabIndex = 1;
+            this.lbl1.Text = "Nome do Paciente:";
             // 
             // txbNomePaciente
             // 
-            txbNomePaciente.Location = new Point(178, 58);
-            txbNomePaciente.Name = "txbNomePaciente";
-            txbNomePaciente.Size = new Size(247, 23);
-            txbNomePaciente.TabIndex = 2;
+            this.txbNomePaciente.Location = new System.Drawing.Point(203, 77);
+            this.txbNomePaciente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbNomePaciente.Name = "txbNomePaciente";
+            this.txbNomePaciente.Size = new System.Drawing.Size(282, 27);
+            this.txbNomePaciente.TabIndex = 2;
+            this.txbNomePaciente.TextChanged += new System.EventHandler(this.txbNomePaciente_TextChanged);
             // 
             // lbl2
             // 
-            lbl2.AutoSize = true;
-            lbl2.Location = new Point(55, 105);
-            lbl2.Name = "lbl2";
-            lbl2.Size = new Size(117, 15);
-            lbl2.TabIndex = 7;
-            lbl2.Text = "Data de Nascimento:";
+            this.lbl2.AutoSize = true;
+            this.lbl2.Location = new System.Drawing.Point(63, 140);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(148, 20);
+            this.lbl2.TabIndex = 7;
+            this.lbl2.Text = "Data de Nascimento:";
             // 
             // dataNascimento
             // 
-            dataNascimento.Location = new Point(178, 99);
-            dataNascimento.Name = "dataNascimento";
-            dataNascimento.Size = new Size(247, 23);
-            dataNascimento.TabIndex = 8;
-            dataNascimento.ValueChanged += dataNascimento_ValueChanged;
+            this.dataNascimento.Location = new System.Drawing.Point(203, 132);
+            this.dataNascimento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataNascimento.Name = "dataNascimento";
+            this.dataNascimento.Size = new System.Drawing.Size(282, 27);
+            this.dataNascimento.TabIndex = 8;
             // 
             // btnConfirmar
             // 
-            btnConfirmar.Location = new Point(178, 228);
-            btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(75, 23);
-            btnConfirmar.TabIndex = 9;
-            btnConfirmar.Text = "Confirmar";
-            btnConfirmar.UseVisualStyleBackColor = true;
-            btnConfirmar.Click += btnConfirmar_Click;
+            this.btnConfirmar.Location = new System.Drawing.Point(203, 304);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(86, 31);
+            this.btnConfirmar.TabIndex = 9;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(350, 228);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
-            btnCancelar.TabIndex = 10;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            this.btnCancelar.Location = new System.Drawing.Point(400, 304);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(86, 31);
+            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // CadastraPaciente
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(554, 306);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnConfirmar);
-            Controls.Add(dataNascimento);
-            Controls.Add(lbl2);
-            Controls.Add(txbNomePaciente);
-            Controls.Add(lbl1);
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "CadastraPaciente";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "CadastraPaciente";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(633, 408);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.dataNascimento);
+            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.txbNomePaciente);
+            this.Controls.Add(this.lbl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "CadastraPaciente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "CadastraPaciente";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

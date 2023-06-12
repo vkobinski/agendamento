@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,19 +24,6 @@ namespace AgendamentoCliente.Telas
             Close();
         }
 
-        private void btnFoto_Click(object sender, EventArgs e)
-        {
-            //Adicionar Foto do Médico
-            OpenFileDialog open = new OpenFileDialog();
-            // image filters
-            open.Filter = string.Empty;
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                // display image in picture box
-                fotoMedico.Image = new Bitmap(open.FileName);
-
-            }
-        }
 
         private async Task enviarForm()
         {
@@ -43,20 +31,20 @@ namespace AgendamentoCliente.Telas
 
             HttpClient httpClient = new HttpClient();
 
-            // Create multipart form data content
             MultipartFormDataContent formData = new MultipartFormDataContent();
 
-            // Add file to form data
             StreamContent fileContent = new StreamContent(File.OpenRead(fotoMedico.ImageLocation));
             formData.Add(fileContent, "foto", fotoMedico.Name);
 
-            // Add additional form fields if needed
             formData.Add(new StringContent(nome), "nomeCompleto");
+
+
+            Debug.WriteLine("Chegou");
 
             try
             {
                 // Send POST request to API endpoint
-                HttpResponseMessage response = await httpClient.PostAsync("http://localhost:8080/api/v1/medico", formData);
+                HttpResponseMessage response = await httpClient.PostAsync("http://localhost:8080/api/v1/medico/form", formData);
 
                 // Check response status
                 if (response.IsSuccessStatusCode)
@@ -74,11 +62,36 @@ namespace AgendamentoCliente.Telas
             }
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private async void btnCadastrar_Click_1(object sender, EventArgs e)
         {
-            //Cadastrar Médico
-            enviarForm();
+            await enviarForm();
             Close();
+
+        }
+
+        private void fotoMedico_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFoto_Click_1(object sender, EventArgs e)
+        {
+            //Adicionar Foto do Médico
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters
+            open.Filter = string.Empty;
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box
+                fotoMedico.Image = new Bitmap(open.FileName);
+                fotoMedico.ImageLocation = open.FileName;
+            }
+
         }
     }
 }
