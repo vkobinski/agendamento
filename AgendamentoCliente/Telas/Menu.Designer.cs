@@ -116,6 +116,7 @@
             this.visualizaPaciente.RowTemplate.Height = 29;
             this.visualizaPaciente.Size = new System.Drawing.Size(620, 387);
             this.visualizaPaciente.TabIndex = 6;
+            this.visualizaPaciente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.visualizaPaciente_CellContentClick);
             // 
             // ID
             // 
@@ -134,7 +135,7 @@
             // DataNascimento
             // 
             this.DataNascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DataNascimento.HeaderText = "Data de Nascimento";
+            this.DataNascimento.HeaderText = "Data de Atendimento";
             this.DataNascimento.MinimumWidth = 6;
             this.DataNascimento.Name = "DataNascimento";
             // 

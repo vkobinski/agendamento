@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,14 +70,14 @@ namespace AgendamentoCliente.Telas
         private async void Menu_Load_1(object sender, EventArgs e)
         {
             HttpClient httpClient = new HttpClient();
-            HttpResponseMessage httpResponseMessage = await httpClient.GetAsync("http://localhost:8080/api/v1/paciente");
+            HttpResponseMessage httpResponseMessage = await httpClient.GetAsync("http://localhost:8080/api/v1/atendimento");
 
             string v = await httpResponseMessage.Content.ReadAsStringAsync();
 
-            List<Paciente> pacienteLista = JsonConvert.DeserializeObject<List<Paciente>>(v);
+            List<Atendimento> atendimentoLista = JsonConvert.DeserializeObject<List<Atendimento>>(v);
 
             DataGridViewRow linha = new DataGridViewRow();
-            pacienteLista.ForEach(paciente =>
+            atendimentoLista.ForEach(atendimento =>
             {
 
 
@@ -86,15 +87,25 @@ namespace AgendamentoCliente.Telas
 
 
 
-                nomeCelula.Value = paciente.NomeCompleto;
-                idCelula.Value = paciente.PacienteId;
-                dataCelula.Value = paciente.DataNascimento;
+                idCelula.Value = atendimento.Paciente.NomeCompleto;
+                nomeCelula.Value = atendimento.Paciente.PacienteId;
+
+                string inputString = atendimento.DataAtendimento;
+                DateTime dateTime = DateTime.ParseExact(inputString, "yyyy-MM-dd'T'HH:mm:ss.ffffff", CultureInfo.InvariantCulture);
+                string formattedDateTime = dateTime.ToString("dd/MM/yyyy HH:mm");
+
+                dataCelula.Value = formattedDateTime;
 
                 linha.Cells.AddRange(nomeCelula, idCelula, dataCelula);
 
                 visualizaPaciente.Rows.Add(linha);
 
             });
+
+        }
+
+        private void visualizaPaciente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
