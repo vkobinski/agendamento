@@ -1,15 +1,6 @@
 ﻿using AgendamentoCliente.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace AgendamentoCliente.Telas
 {
@@ -56,7 +47,7 @@ namespace AgendamentoCliente.Telas
 
         private void btnAgendar_Click(object sender, EventArgs e)
         {
- Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
+            Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
             ap.Show();
 
         }
@@ -81,9 +72,9 @@ namespace AgendamentoCliente.Telas
             {
 
 
-            DataGridViewTextBoxCell nomeCelula = new DataGridViewTextBoxCell();
-            DataGridViewTextBoxCell idCelula = new DataGridViewTextBoxCell();
-            DataGridViewTextBoxCell dataCelula = new DataGridViewTextBoxCell();
+                DataGridViewTextBoxCell nomeCelula = new DataGridViewTextBoxCell();
+                DataGridViewTextBoxCell idCelula = new DataGridViewTextBoxCell();
+                DataGridViewTextBoxCell dataCelula = new DataGridViewTextBoxCell();
 
 
 

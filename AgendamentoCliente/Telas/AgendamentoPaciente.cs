@@ -1,18 +1,6 @@
 ﻿using AgendamentoCliente.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AgendamentoCliente.Telas
 {
@@ -63,7 +51,7 @@ namespace AgendamentoCliente.Telas
             txbNomePaciente.AutoCompleteCustomSource.AddRange(nomes.ToArray());
         }
 
-  private async void adicionaAutoCompleteMedico()
+        private async void adicionaAutoCompleteMedico()
         {
             HttpClient http = new HttpClient();
             HttpResponseMessage response = await http.GetAsync("http://localhost:8080/api/v1/medico");
@@ -104,7 +92,7 @@ namespace AgendamentoCliente.Telas
 
         private void txbNomePaciente_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txbNomeMedico_TextChanged(object sender, EventArgs e)

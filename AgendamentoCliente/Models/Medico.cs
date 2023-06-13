@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AgendamentoCliente.Models
+﻿namespace AgendamentoCliente.Models
 {
     public class Medico
     {
@@ -14,7 +8,7 @@ namespace AgendamentoCliente.Models
         public bool Ativo { get; set; }
 
         public byte[] Foto { get; set; }
-        
+
     }
 
     public class Paciente
