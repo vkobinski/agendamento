@@ -113,10 +113,10 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(205, 151);
+            dateTimePicker1.Location = new Point(191, 151);
             dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(282, 23);
+            dateTimePicker1.Size = new Size(247, 23);
             dateTimePicker1.TabIndex = 11;
             // 
             // AgendamentoPaciente

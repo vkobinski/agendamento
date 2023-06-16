@@ -28,155 +28,152 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.txbNomeMedico = new System.Windows.Forms.TextBox();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.btnFoto = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.fotoMedico = new System.Windows.Forms.PictureBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblSenha = new System.Windows.Forms.Label();
-            this.txbEmail = new System.Windows.Forms.TextBox();
-            this.txbSenha = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoMedico)).BeginInit();
-            this.SuspendLayout();
+            lbl1 = new Label();
+            txbNomeMedico = new TextBox();
+            lbl2 = new Label();
+            btnFoto = new Button();
+            btnCadastrar = new Button();
+            btnCancelar = new Button();
+            fileSystemWatcher1 = new FileSystemWatcher();
+            fotoMedico = new PictureBox();
+            lblEmail = new Label();
+            lblSenha = new Label();
+            txbEmail = new TextBox();
+            txbSenha = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fotoMedico).BeginInit();
+            SuspendLayout();
             // 
             // lbl1
             // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(63, 56);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(129, 20);
-            this.lbl1.TabIndex = 2;
-            this.lbl1.Text = "Nome do Médico:";
+            lbl1.AutoSize = true;
+            lbl1.Location = new Point(55, 42);
+            lbl1.Name = "lbl1";
+            lbl1.Size = new Size(103, 15);
+            lbl1.TabIndex = 2;
+            lbl1.Text = "Nome do Médico:";
             // 
             // txbNomeMedico
             // 
-            this.txbNomeMedico.Location = new System.Drawing.Point(187, 52);
-            this.txbNomeMedico.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txbNomeMedico.Name = "txbNomeMedico";
-            this.txbNomeMedico.Size = new System.Drawing.Size(282, 27);
-            this.txbNomeMedico.TabIndex = 5;
+            txbNomeMedico.Location = new Point(164, 39);
+            txbNomeMedico.Name = "txbNomeMedico";
+            txbNomeMedico.Size = new Size(247, 23);
+            txbNomeMedico.TabIndex = 5;
             // 
             // lbl2
             // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(142, 205);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(42, 20);
-            this.lbl2.TabIndex = 6;
-            this.lbl2.Text = "Foto:";
+            lbl2.AutoSize = true;
+            lbl2.Location = new Point(124, 154);
+            lbl2.Name = "lbl2";
+            lbl2.Size = new Size(34, 15);
+            lbl2.TabIndex = 6;
+            lbl2.Text = "Foto:";
             // 
             // btnFoto
             // 
-            this.btnFoto.Location = new System.Drawing.Point(384, 205);
-            this.btnFoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFoto.Name = "btnFoto";
-            this.btnFoto.Size = new System.Drawing.Size(86, 31);
-            this.btnFoto.TabIndex = 7;
-            this.btnFoto.Text = "Adicionar";
-            this.btnFoto.UseVisualStyleBackColor = true;
+            btnFoto.Location = new Point(336, 154);
+            btnFoto.Name = "btnFoto";
+            btnFoto.Size = new Size(75, 23);
+            btnFoto.TabIndex = 7;
+            btnFoto.Text = "Adicionar";
+            btnFoto.UseVisualStyleBackColor = true;
+            btnFoto.Click += btnFoto_Click;
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(187, 361);
-            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(115, 31);
-            this.btnCadastrar.TabIndex = 8;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Location = new Point(164, 271);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new Size(101, 23);
+            btnCadastrar.TabIndex = 8;
+            btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(354, 361);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(115, 31);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Location = new Point(310, 271);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(101, 23);
+            btnCancelar.TabIndex = 9;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // fileSystemWatcher1
             // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
+            fileSystemWatcher1.EnableRaisingEvents = true;
+            fileSystemWatcher1.SynchronizingObject = this;
             // 
             // fotoMedico
             // 
-            this.fotoMedico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fotoMedico.Location = new System.Drawing.Point(187, 205);
-            this.fotoMedico.Name = "fotoMedico";
-            this.fotoMedico.Size = new System.Drawing.Size(115, 134);
-            this.fotoMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.fotoMedico.TabIndex = 10;
-            this.fotoMedico.TabStop = false;
+            fotoMedico.BorderStyle = BorderStyle.FixedSingle;
+            fotoMedico.Location = new Point(164, 154);
+            fotoMedico.Margin = new Padding(3, 2, 3, 2);
+            fotoMedico.Name = "fotoMedico";
+            fotoMedico.Size = new Size(101, 101);
+            fotoMedico.SizeMode = PictureBoxSizeMode.StretchImage;
+            fotoMedico.TabIndex = 10;
+            fotoMedico.TabStop = false;
             // 
             // lblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(130, 111);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(55, 20);
-            this.lblEmail.TabIndex = 11;
-            this.lblEmail.Text = "E-mail:";
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(114, 83);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(44, 15);
+            lblEmail.TabIndex = 11;
+            lblEmail.Text = "E-mail:";
             // 
             // lblSenha
             // 
-            this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(133, 160);
-            this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(52, 20);
-            this.lblSenha.TabIndex = 12;
-            this.lblSenha.Text = "Senha:";
+            lblSenha.AutoSize = true;
+            lblSenha.Location = new Point(116, 120);
+            lblSenha.Name = "lblSenha";
+            lblSenha.Size = new Size(42, 15);
+            lblSenha.TabIndex = 12;
+            lblSenha.Text = "Senha:";
             // 
             // txbEmail
             // 
-            this.txbEmail.Location = new System.Drawing.Point(187, 107);
-            this.txbEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(282, 27);
-            this.txbEmail.TabIndex = 13;
-            this.txbEmail.TextChanged += new System.EventHandler(this.txbEmail_TextChanged);
+            txbEmail.Location = new Point(164, 80);
+            txbEmail.Name = "txbEmail";
+            txbEmail.Size = new Size(247, 23);
+            txbEmail.TabIndex = 13;
+            txbEmail.TextChanged += txbEmail_TextChanged;
             // 
             // txbSenha
             // 
-            this.txbSenha.Location = new System.Drawing.Point(187, 156);
-            this.txbSenha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txbSenha.Name = "txbSenha";
-            this.txbSenha.Size = new System.Drawing.Size(282, 27);
-            this.txbSenha.TabIndex = 14;
+            txbSenha.Location = new Point(164, 117);
+            txbSenha.Name = "txbSenha";
+            txbSenha.PasswordChar = '*';
+            txbSenha.Size = new Size(247, 23);
+            txbSenha.TabIndex = 14;
             // 
             // CadastraMedico
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 408);
-            this.Controls.Add(this.txbSenha);
-            this.Controls.Add(this.txbEmail);
-            this.Controls.Add(this.lblSenha);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.fotoMedico);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.btnFoto);
-            this.Controls.Add(this.lbl2);
-            this.Controls.Add(this.txbNomeMedico);
-            this.Controls.Add(this.lbl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "CadastraMedico";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastrar";
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoMedico)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(554, 306);
+            Controls.Add(txbSenha);
+            Controls.Add(txbEmail);
+            Controls.Add(lblSenha);
+            Controls.Add(lblEmail);
+            Controls.Add(fotoMedico);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnCadastrar);
+            Controls.Add(btnFoto);
+            Controls.Add(lbl2);
+            Controls.Add(txbNomeMedico);
+            Controls.Add(lbl1);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "CadastraMedico";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Cadastrar";
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fotoMedico).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

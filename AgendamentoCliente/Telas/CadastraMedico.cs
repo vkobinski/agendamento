@@ -38,7 +38,7 @@ namespace AgendamentoCliente.Telas
             try
             {
                 // Send POST request to API endpoint
-                HttpResponseMessage response = await httpClient.PostAsync("http://localhost:8080/api/v1/medico/form", formData);
+                HttpResponseMessage response = await httpClient.PostAsync("http://localhost:8080/api/v1/usuario/form-medico", formData);
 
                 // Check response status
                 if (response.IsSuccessStatusCode)
@@ -56,7 +56,7 @@ namespace AgendamentoCliente.Telas
             }
         }
 
-        private async void btnCadastrar_Click_1(object sender, EventArgs e)
+        private async void btnCadastrar_Click(object sender, EventArgs e)
         {
             await enviarForm();
             Close();
@@ -73,7 +73,7 @@ namespace AgendamentoCliente.Telas
 
         }
 
-        private void btnFoto_Click_1(object sender, EventArgs e)
+        private void btnFoto_Click(object sender, EventArgs e)
         {
             //Adicionar Foto do Médico
             OpenFileDialog open = new OpenFileDialog();
@@ -85,12 +85,6 @@ namespace AgendamentoCliente.Telas
                 fotoMedico.Image = new Bitmap(open.FileName);
                 fotoMedico.ImageLocation = open.FileName;
             }
-
-        }
-
-        private void btnCancelar_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void label2_Click(object sender, EventArgs e)
