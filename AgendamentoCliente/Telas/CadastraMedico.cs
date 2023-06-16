@@ -97,5 +97,10 @@ namespace AgendamentoCliente.Telas
         {
 
         }
+
+        private void txbEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
