@@ -72,14 +72,14 @@ namespace AgendamentoCliente.Telas
 
                 DataGridViewRow linha = new DataGridViewRow();
 
-                DataGridViewTextBoxCell nomeCelula = new DataGridViewTextBoxCell();
-                DataGridViewTextBoxCell idCelula = new DataGridViewTextBoxCell();
+                DataGridViewTextBoxCell nomeMedicoCelula = new DataGridViewTextBoxCell();
+                DataGridViewTextBoxCell nomePacienteCelula = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell dataCelula = new DataGridViewTextBoxCell();
 
 
 
-                idCelula.Value = atendimento.Paciente.NomeCompleto;
-                nomeCelula.Value = atendimento.Paciente.PacienteId;
+                nomePacienteCelula.Value = atendimento.Paciente.NomeCompleto;
+                nomeMedicoCelula.Value = atendimento.Medico.NomeCompleto;
 
                 string inputString = atendimento.DataAtendimento;
 
@@ -99,7 +99,7 @@ namespace AgendamentoCliente.Telas
 
                 dataCelula.Value = formattedDateTime;
 
-                linha.Cells.AddRange(nomeCelula, idCelula, dataCelula);
+                linha.Cells.AddRange(nomeMedicoCelula, nomePacienteCelula, dataCelula);
 
                 visualizaPaciente.Rows.Add(linha);
 
@@ -118,6 +118,18 @@ namespace AgendamentoCliente.Telas
                 visualizaPaciente.Rows.RemoveAt(i);
             }
             atualizaTabelaAgendamento();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            atualizaTabelaAgendamento();
+        }
+
+        private void btnAgendar_Click_1(object sender, EventArgs e)
+        {
+ Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
+            ap.Show();
+
         }
     }
 }

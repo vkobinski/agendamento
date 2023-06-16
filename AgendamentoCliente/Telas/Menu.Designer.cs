@@ -28,144 +28,149 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbl1 = new Label();
-            lbl2 = new Label();
-            btnAgendar = new Button();
-            btnDesmarcar = new Button();
-            btnCadastrar = new Button();
-            btnRemover = new Button();
-            visualizaPaciente = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            Nome = new DataGridViewTextBoxColumn();
-            DataNascimento = new DataGridViewTextBoxColumn();
-            btnAtualizar = new Button();
-            ((System.ComponentModel.ISupportInitialize)visualizaPaciente).BeginInit();
-            SuspendLayout();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.btnAgendar = new System.Windows.Forms.Button();
+            this.btnDesmarcar = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.visualizaPaciente = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.visualizaPaciente)).BeginInit();
+            this.SuspendLayout();
             // 
             // lbl1
             // 
-            lbl1.AutoSize = true;
-            lbl1.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl1.Location = new Point(296, 43);
-            lbl1.Name = "lbl1";
-            lbl1.Size = new Size(128, 23);
-            lbl1.TabIndex = 0;
-            lbl1.Text = "LAYOUT TESTE";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl1.Location = new System.Drawing.Point(338, 57);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(161, 29);
+            this.lbl1.TabIndex = 0;
+            this.lbl1.Text = "LAYOUT TESTE";
             // 
             // lbl2
             // 
-            lbl2.AutoSize = true;
-            lbl2.Location = new Point(24, 89);
-            lbl2.Name = "lbl2";
-            lbl2.Size = new Size(87, 15);
-            lbl2.TabIndex = 1;
-            lbl2.Text = "Lista Pacientes:";
+            this.lbl2.AutoSize = true;
+            this.lbl2.Location = new System.Drawing.Point(27, 119);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(107, 20);
+            this.lbl2.TabIndex = 1;
+            this.lbl2.Text = "Lista Pacientes:";
             // 
             // btnAgendar
             // 
-            btnAgendar.Location = new Point(584, 89);
-            btnAgendar.Name = "btnAgendar";
-            btnAgendar.Size = new Size(113, 23);
-            btnAgendar.TabIndex = 2;
-            btnAgendar.Text = "Agendar";
-            btnAgendar.UseVisualStyleBackColor = true;
-            btnAgendar.Click += btnAgendar_Click;
+            this.btnAgendar.Location = new System.Drawing.Point(667, 119);
+            this.btnAgendar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAgendar.Name = "btnAgendar";
+            this.btnAgendar.Size = new System.Drawing.Size(129, 31);
+            this.btnAgendar.TabIndex = 2;
+            this.btnAgendar.Text = "Agendar";
+            this.btnAgendar.UseVisualStyleBackColor = true;
+            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click_1);
             // 
             // btnDesmarcar
             // 
-            btnDesmarcar.Location = new Point(584, 133);
-            btnDesmarcar.Name = "btnDesmarcar";
-            btnDesmarcar.Size = new Size(113, 23);
-            btnDesmarcar.TabIndex = 3;
-            btnDesmarcar.Text = "Desmarcar";
-            btnDesmarcar.UseVisualStyleBackColor = true;
+            this.btnDesmarcar.Location = new System.Drawing.Point(667, 177);
+            this.btnDesmarcar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDesmarcar.Name = "btnDesmarcar";
+            this.btnDesmarcar.Size = new System.Drawing.Size(129, 31);
+            this.btnDesmarcar.TabIndex = 3;
+            this.btnDesmarcar.Text = "Desmarcar";
+            this.btnDesmarcar.UseVisualStyleBackColor = true;
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(584, 173);
-            btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(113, 23);
-            btnCadastrar.TabIndex = 4;
-            btnCadastrar.Text = "Cadastrar Médico";
-            btnCadastrar.UseVisualStyleBackColor = true;
-            btnCadastrar.Click += btnCadastrar_Click_1;
+            this.btnCadastrar.Location = new System.Drawing.Point(667, 231);
+            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(129, 31);
+            this.btnCadastrar.TabIndex = 4;
+            this.btnCadastrar.Text = "Cadastrar Médico";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
             // 
             // btnRemover
             // 
-            btnRemover.Location = new Point(584, 215);
-            btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(113, 23);
-            btnRemover.TabIndex = 5;
-            btnRemover.Text = "Remover Médico";
-            btnRemover.UseVisualStyleBackColor = true;
-            btnRemover.Click += btnRemover_Click_1;
+            this.btnRemover.Location = new System.Drawing.Point(667, 287);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(129, 31);
+            this.btnRemover.TabIndex = 5;
+            this.btnRemover.Text = "Remover Médico";
+            this.btnRemover.UseVisualStyleBackColor = true;
             // 
             // visualizaPaciente
             // 
-            visualizaPaciente.BackgroundColor = SystemColors.Control;
-            visualizaPaciente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            visualizaPaciente.Columns.AddRange(new DataGridViewColumn[] { ID, Nome, DataNascimento });
-            visualizaPaciente.Location = new Point(22, 126);
-            visualizaPaciente.Margin = new Padding(3, 2, 3, 2);
-            visualizaPaciente.Name = "visualizaPaciente";
-            visualizaPaciente.RowHeadersWidth = 51;
-            visualizaPaciente.RowTemplate.Height = 29;
-            visualizaPaciente.Size = new Size(542, 290);
-            visualizaPaciente.TabIndex = 6;
-            visualizaPaciente.CellContentClick += visualizaPaciente_CellContentClick;
+            this.visualizaPaciente.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.visualizaPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.visualizaPaciente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Nome,
+            this.DataNascimento});
+            this.visualizaPaciente.Location = new System.Drawing.Point(25, 168);
+            this.visualizaPaciente.Name = "visualizaPaciente";
+            this.visualizaPaciente.RowHeadersWidth = 51;
+            this.visualizaPaciente.RowTemplate.Height = 29;
+            this.visualizaPaciente.Size = new System.Drawing.Size(619, 387);
+            this.visualizaPaciente.TabIndex = 6;
             // 
             // ID
             // 
-            ID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.HeaderText = "Nome Médico";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
             // 
             // Nome
             // 
-            Nome.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Nome.HeaderText = "Nome";
-            Nome.MinimumWidth = 6;
-            Nome.Name = "Nome";
+            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nome.HeaderText = "Nome Paciente";
+            this.Nome.MinimumWidth = 6;
+            this.Nome.Name = "Nome";
             // 
             // DataNascimento
             // 
-            DataNascimento.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DataNascimento.HeaderText = "Data de Atendimento";
-            DataNascimento.MinimumWidth = 6;
-            DataNascimento.Name = "DataNascimento";
+            this.DataNascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataNascimento.HeaderText = "Data de Atendimento";
+            this.DataNascimento.MinimumWidth = 6;
+            this.DataNascimento.Name = "DataNascimento";
             // 
             // btnAtualizar
             // 
-            btnAtualizar.Location = new Point(22, 421);
-            btnAtualizar.Name = "btnAtualizar";
-            btnAtualizar.Size = new Size(75, 23);
-            btnAtualizar.TabIndex = 7;
-            btnAtualizar.Text = "Atualizar";
-            btnAtualizar.UseVisualStyleBackColor = true;
-            btnAtualizar.Click += btnAtualizar_Click;
+            this.btnAtualizar.Location = new System.Drawing.Point(25, 561);
+            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(86, 31);
+            this.btnAtualizar.TabIndex = 7;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(746, 560);
-            Controls.Add(btnAtualizar);
-            Controls.Add(visualizaPaciente);
-            Controls.Add(btnRemover);
-            Controls.Add(btnCadastrar);
-            Controls.Add(btnDesmarcar);
-            Controls.Add(btnAgendar);
-            Controls.Add(lbl2);
-            Controls.Add(lbl1);
-            MaximizeBox = false;
-            Name = "Menu";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "BemVindo";
-            Load += Menu_Load_1;
-            ((System.ComponentModel.ISupportInitialize)visualizaPaciente).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(853, 747);
+            this.Controls.Add(this.btnAtualizar);
+            this.Controls.Add(this.visualizaPaciente);
+            this.Controls.Add(this.btnRemover);
+            this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.btnDesmarcar);
+            this.Controls.Add(this.btnAgendar);
+            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.lbl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "BemVindo";
+            this.Load += new System.EventHandler(this.Menu_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.visualizaPaciente)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -177,9 +182,9 @@
         private Button btnCadastrar;
         private Button btnRemover;
         private DataGridView visualizaPaciente;
+        private Button btnAtualizar;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn DataNascimento;
-        private Button btnAtualizar;
     }
 }

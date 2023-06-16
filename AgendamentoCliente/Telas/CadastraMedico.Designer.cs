@@ -79,6 +79,7 @@
             this.btnFoto.TabIndex = 7;
             this.btnFoto.Text = "Adicionar";
             this.btnFoto.UseVisualStyleBackColor = true;
+            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
             // 
             // btnCadastrar
             // 
@@ -89,6 +90,7 @@
             this.btnCadastrar.TabIndex = 8;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnCancelar
             // 
