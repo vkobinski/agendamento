@@ -8,6 +8,33 @@ namespace AgendamentoCliente.Telas
         public RemoveMedico()
         {
             InitializeComponent();
+
+            autocompletes();
+        }
+
+        public void autocompletes()
+        {
+            txbNomeMedico.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txbNomeMedico.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            adicionaAutoCompleteMedico();
+        }
+
+        private async void adicionaAutoCompleteMedico()
+        {
+            HttpClient http = new HttpClient();
+            HttpResponseMessage response = await http.GetAsync("http://localhost:8080/api/v1/medico");
+
+            string v = await response.Content.ReadAsStringAsync();
+            List<Medico> medicos = JsonConvert.DeserializeObject<List<Medico>>(v);
+
+            List<string> nomes = new List<string>();
+
+            medicos.ForEach(medico =>
+            {
+                nomes.Add(medico.NomeCompleto.ToString());
+            });
+
+            txbNomeMedico.AutoCompleteCustomSource.AddRange(nomes.ToArray());
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

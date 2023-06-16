@@ -11,11 +11,6 @@ namespace AgendamentoCliente.Telas
             InitializeComponent();
         }
 
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -33,7 +28,7 @@ namespace AgendamentoCliente.Telas
             dp.Show();
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
             Telas.CadastraMedico cm = new Telas.CadastraMedico();
             cm.Show();
@@ -60,6 +55,11 @@ namespace AgendamentoCliente.Telas
 
         private async void Menu_Load_1(object sender, EventArgs e)
         {
+            atualizaTabelaAgendamento();
+        }
+
+        private async void atualizaTabelaAgendamento()
+        {
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage httpResponseMessage = await httpClient.GetAsync("http://localhost:8080/api/v1/atendimento");
 
@@ -67,10 +67,10 @@ namespace AgendamentoCliente.Telas
 
             List<Atendimento> atendimentoLista = JsonConvert.DeserializeObject<List<Atendimento>>(v);
 
-            DataGridViewRow linha = new DataGridViewRow();
             atendimentoLista.ForEach(atendimento =>
             {
 
+                DataGridViewRow linha = new DataGridViewRow();
 
                 DataGridViewTextBoxCell nomeCelula = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell idCelula = new DataGridViewTextBoxCell();
@@ -82,8 +82,20 @@ namespace AgendamentoCliente.Telas
                 nomeCelula.Value = atendimento.Paciente.PacienteId;
 
                 string inputString = atendimento.DataAtendimento;
-                DateTime dateTime = DateTime.ParseExact(inputString, "yyyy-MM-dd'T'HH:mm:ss.ffffff", CultureInfo.InvariantCulture);
-                string formattedDateTime = dateTime.ToString("dd/MM/yyyy HH:mm");
+
+                string formattedDateTime;
+
+                try
+                {
+                    DateTime dateTime = DateTime.ParseExact(inputString, "yyyy-MM-dd'T'HH:mm:ss", CultureInfo.InvariantCulture);
+                    formattedDateTime = dateTime.ToString("dd/MM/yyyy HH:mm");
+                }
+                catch (Exception e)
+                {
+                    DateTime dateTime = DateTime.Parse(inputString, CultureInfo.CurrentCulture);
+                    DateTime newDateTime = new DateTime(dateTime.Ticks);
+                    formattedDateTime = newDateTime.ToString("dd/MM/yyyy HH:mm");
+                }
 
                 dataCelula.Value = formattedDateTime;
 
@@ -92,12 +104,20 @@ namespace AgendamentoCliente.Telas
                 visualizaPaciente.Rows.Add(linha);
 
             });
-
         }
 
         private void visualizaPaciente_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            for (int i = visualizaPaciente.Rows.Count - 2; i >= 0; i--)
+            {
+                visualizaPaciente.Rows.RemoveAt(i);
+            }
+            atualizaTabelaAgendamento();
         }
     }
 }

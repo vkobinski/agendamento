@@ -18,6 +18,8 @@ namespace AgendamentoCliente.Telas
         private async Task enviarForm()
         {
             var nome = txbNomeMedico.Text;
+            var email = txbEmail.Text;
+            var senha = txbSenha.Text;
 
             HttpClient httpClient = new HttpClient();
 
@@ -27,6 +29,8 @@ namespace AgendamentoCliente.Telas
             formData.Add(fileContent, "foto", fotoMedico.Name);
 
             formData.Add(new StringContent(nome), "nomeCompleto");
+            formData.Add(new StringContent(email), "email");
+            formData.Add(new StringContent(senha), "senha");
 
 
             Debug.WriteLine("Chegou");
@@ -81,6 +85,16 @@ namespace AgendamentoCliente.Telas
                 fotoMedico.Image = new Bitmap(open.FileName);
                 fotoMedico.ImageLocation = open.FileName;
             }
+
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }

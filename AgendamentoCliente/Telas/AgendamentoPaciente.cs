@@ -69,7 +69,7 @@ namespace AgendamentoCliente.Telas
             txbNomeMedico.AutoCompleteCustomSource.AddRange(nomes.ToArray());
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             Close();
         }
@@ -84,10 +84,11 @@ namespace AgendamentoCliente.Telas
 
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
             Telas.CadastraPaciente cp = new Telas.CadastraPaciente();
             cp.Show();
+            Close();
         }
 
         private void txbNomePaciente_TextChanged(object sender, EventArgs e)
@@ -142,11 +143,13 @@ namespace AgendamentoCliente.Telas
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
+            Close();
         }
 
         private void txbNomePaciente_TextChanged_1(object sender, EventArgs e)
         {
 
         }
+
     }
 }
