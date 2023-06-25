@@ -116,10 +116,8 @@ namespace AgendamentoCliente.Telas
 
         private async void btnCadastrar_Click(object sender, EventArgs e)
         {
-        await enviarForm();
+            await enviarForm();
             Close();
-
-
         }
     }
 }

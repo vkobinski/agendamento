@@ -131,5 +131,22 @@ namespace AgendamentoCliente.Telas
             ap.Show();
 
         }
+
+        private void btnAtualizar_Click_1(object sender, EventArgs e)
+        {
+            for (int i = visualizaPaciente.Rows.Count - 2; i >= 0; i--)
+            {
+                visualizaPaciente.Rows.RemoveAt(i);
+            }
+            atualizaTabelaAgendamento();
+
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+  Telas.CadastraMedico cm = new Telas.CadastraMedico();
+            cm.Show();
+
+        }
     }
 }
