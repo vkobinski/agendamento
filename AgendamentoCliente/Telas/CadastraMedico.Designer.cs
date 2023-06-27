@@ -71,23 +71,23 @@
             // 
             // btnFoto
             // 
-            btnFoto.Location = new Point(336, 154);
-            btnFoto.Name = "btnFoto";
-            btnFoto.Size = new Size(75, 23);
-            btnFoto.TabIndex = 7;
-            btnFoto.Text = "Adicionar";
-            btnFoto.UseVisualStyleBackColor = true;
-            btnFoto.Click += btnFoto_Click;
+            this.btnFoto.Location = new System.Drawing.Point(384, 205);
+            this.btnFoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFoto.Name = "btnFoto";
+            this.btnFoto.Size = new System.Drawing.Size(86, 31);
+            this.btnFoto.TabIndex = 7;
+            this.btnFoto.Text = "Adicionar";
+            this.btnFoto.UseVisualStyleBackColor = true;
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(164, 271);
-            btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(101, 23);
-            btnCadastrar.TabIndex = 8;
-            btnCadastrar.Text = "Cadastrar";
-            btnCadastrar.UseVisualStyleBackColor = true;
-            btnCadastrar.Click += btnCadastrar_Click;
+            this.btnCadastrar.Location = new System.Drawing.Point(187, 361);
+            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(115, 31);
+            this.btnCadastrar.TabIndex = 8;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 

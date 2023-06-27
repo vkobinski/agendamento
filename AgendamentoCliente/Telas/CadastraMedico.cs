@@ -27,13 +27,9 @@ namespace AgendamentoCliente.Telas
 
             StreamContent fileContent = new StreamContent(File.OpenRead(fotoMedico.ImageLocation));
             formData.Add(fileContent, "foto", fotoMedico.Name);
-
             formData.Add(new StringContent(nome), "nomeCompleto");
             formData.Add(new StringContent(email), "email");
             formData.Add(new StringContent(senha), "senha");
-
-
-            Debug.WriteLine("Chegou");
 
             try
             {
@@ -94,6 +90,29 @@ namespace AgendamentoCliente.Telas
 
         private void txbEmail_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnFoto_Click(object sender, EventArgs e)
+        {
+            //Adicionar Foto do Médico
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters
+            open.Filter = string.Empty;
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box
+                fotoMedico.Image = new Bitmap(open.FileName);
+                fotoMedico.ImageLocation = open.FileName;
+            }
+
+        }
+
+        private async void btnCadastrar_Click(object sender, EventArgs e)
+        {
+        await enviarForm();
+            Close();
+
 
         }
     }
