@@ -71,23 +71,25 @@
             // 
             // btnFoto
             // 
-            this.btnFoto.Location = new System.Drawing.Point(384, 205);
-            this.btnFoto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFoto.Name = "btnFoto";
-            this.btnFoto.Size = new System.Drawing.Size(86, 31);
-            this.btnFoto.TabIndex = 7;
-            this.btnFoto.Text = "Adicionar";
-            this.btnFoto.UseVisualStyleBackColor = true;
+            btnFoto.Location = new Point(310, 154);
+            btnFoto.Margin = new Padding(3, 4, 3, 4);
+            btnFoto.Name = "btnFoto";
+            btnFoto.Size = new Size(101, 23);
+            btnFoto.TabIndex = 7;
+            btnFoto.Text = "Adicionar";
+            btnFoto.UseVisualStyleBackColor = true;
+            btnFoto.Click += btnFoto_Click;
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(187, 361);
-            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(115, 31);
-            this.btnCadastrar.TabIndex = 8;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Location = new Point(164, 271);
+            btnCadastrar.Margin = new Padding(3, 4, 3, 4);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new Size(101, 23);
+            btnCadastrar.TabIndex = 8;
+            btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnCancelar
             // 
@@ -153,7 +155,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(554, 306);
+            ClientSize = new Size(554, 323);
             Controls.Add(txbSenha);
             Controls.Add(txbEmail);
             Controls.Add(lblSenha);

@@ -75,7 +75,7 @@ namespace AgendamentoCliente.Telas
 
                 Medico medico = JsonConvert.DeserializeObject<Medico>(stringResponse);
 
-                if(medico == null)
+                if (medico == null)
                 {
                     throw new HttpRequestException("Médico não encontrado");
                 }
@@ -125,5 +125,6 @@ namespace AgendamentoCliente.Telas
         {
 
         }
+
     }
 }

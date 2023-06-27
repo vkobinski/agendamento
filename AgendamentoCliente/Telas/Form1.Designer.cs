@@ -30,69 +30,73 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnEntrar = new Button();
-            lbl1 = new Label();
-            lbl2 = new Label();
             txbUser = new TextBox();
             txbPassword = new TextBox();
+            txbErro = new Label();
             SuspendLayout();
             // 
             // btnEntrar
             // 
-            btnEntrar.Location = new Point(91, 104);
+            btnEntrar.FlatStyle = FlatStyle.Flat;
+            btnEntrar.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEntrar.ForeColor = SystemColors.ControlLightLight;
+            btnEntrar.Image = Properties.Resources.btnEntrar;
+            btnEntrar.Location = new Point(560, 638);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(75, 23);
+            btnEntrar.Size = new Size(318, 50);
             btnEntrar.TabIndex = 0;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = true;
             btnEntrar.Click += btnEntrar_Click;
             // 
-            // lbl1
-            // 
-            lbl1.AutoSize = true;
-            lbl1.Location = new Point(21, 32);
-            lbl1.Name = "lbl1";
-            lbl1.Size = new Size(40, 15);
-            lbl1.TabIndex = 1;
-            lbl1.Text = "Login:";
-            // 
-            // lbl2
-            // 
-            lbl2.AutoSize = true;
-            lbl2.Location = new Point(21, 65);
-            lbl2.Name = "lbl2";
-            lbl2.Size = new Size(42, 15);
-            lbl2.TabIndex = 2;
-            lbl2.Text = "Senha:";
-            // 
             // txbUser
             // 
-            txbUser.Location = new Point(79, 29);
+            txbUser.BorderStyle = BorderStyle.None;
+            txbUser.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txbUser.Location = new Point(560, 400);
             txbUser.Name = "txbUser";
-            txbUser.Size = new Size(100, 23);
+            txbUser.Size = new Size(318, 30);
             txbUser.TabIndex = 3;
             // 
             // txbPassword
             // 
-            txbPassword.Location = new Point(79, 62);
+            txbPassword.BorderStyle = BorderStyle.None;
+            txbPassword.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txbPassword.Location = new Point(560, 502);
             txbPassword.Name = "txbPassword";
             txbPassword.PasswordChar = '*';
-            txbPassword.Size = new Size(100, 23);
+            txbPassword.Size = new Size(318, 30);
             txbPassword.TabIndex = 4;
+            // 
+            // txbErro
+            // 
+            txbErro.AutoSize = true;
+            txbErro.Font = new Font("Calibri", 12F, FontStyle.Underline, GraphicsUnit.Point);
+            txbErro.ForeColor = Color.FromArgb(76, 4, 44);
+            txbErro.Location = new Point(631, 583);
+            txbErro.Name = "txbErro";
+            txbErro.Size = new Size(182, 19);
+            txbErro.TabIndex = 5;
+            txbErro.Text = "E-mail ou Senha Incorretos";
+            txbErro.Visible = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(229, 139);
+            BackColor = SystemColors.ControlLightLight;
+            BackgroundImage = Properties.Resources.telaLogin2;
+            BackgroundImageLayout = ImageLayout.None;
+            ClientSize = new Size(1424, 985);
+            Controls.Add(txbErro);
             Controls.Add(txbPassword);
             Controls.Add(txbUser);
-            Controls.Add(lbl2);
-            Controls.Add(lbl1);
             Controls.Add(btnEntrar);
+            DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            MinimizeBox = false;
             Name = "Form1";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ResumeLayout(false);
@@ -102,9 +106,8 @@
         #endregion
 
         private Button btnEntrar;
-        private Label lbl1;
-        private Label lbl2;
         private TextBox txbUser;
         private TextBox txbPassword;
+        private Label txbErro;
     }
 }

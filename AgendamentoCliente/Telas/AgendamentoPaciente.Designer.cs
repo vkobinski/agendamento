@@ -42,7 +42,7 @@
             // lbl1
             // 
             lbl1.AutoSize = true;
-            lbl1.Location = new Point(55, 61);
+            lbl1.Location = new Point(388, 294);
             lbl1.Name = "lbl1";
             lbl1.Size = new Size(108, 15);
             lbl1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // txbNomePaciente
             // 
-            txbNomePaciente.Location = new Point(191, 58);
+            txbNomePaciente.Location = new Point(537, 291);
             txbNomePaciente.Name = "txbNomePaciente";
             txbNomePaciente.Size = new Size(247, 23);
             txbNomePaciente.TabIndex = 1;
@@ -58,9 +58,13 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(337, 222);
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar.ForeColor = SystemColors.ControlLightLight;
+            btnCancelar.Image = Properties.Resources.btnEntrar;
+            btnCancelar.Location = new Point(687, 442);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(101, 23);
+            btnCancelar.Size = new Size(152, 50);
             btnCancelar.TabIndex = 4;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -68,9 +72,13 @@
             // 
             // btnAgendar
             // 
-            btnAgendar.Location = new Point(191, 222);
+            btnAgendar.FlatStyle = FlatStyle.Flat;
+            btnAgendar.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAgendar.ForeColor = SystemColors.ControlLightLight;
+            btnAgendar.Image = Properties.Resources.btnEntrar;
+            btnAgendar.Location = new Point(527, 442);
             btnAgendar.Name = "btnAgendar";
-            btnAgendar.Size = new Size(101, 23);
+            btnAgendar.Size = new Size(154, 50);
             btnAgendar.TabIndex = 5;
             btnAgendar.Text = "Agendar";
             btnAgendar.UseVisualStyleBackColor = true;
@@ -79,7 +87,7 @@
             // lbl3
             // 
             lbl3.AutoSize = true;
-            lbl3.Location = new Point(55, 105);
+            lbl3.Location = new Point(388, 328);
             lbl3.Name = "lbl3";
             lbl3.Size = new Size(103, 15);
             lbl3.TabIndex = 6;
@@ -88,7 +96,7 @@
             // lbl4
             // 
             lbl4.AutoSize = true;
-            lbl4.Location = new Point(55, 151);
+            lbl4.Location = new Point(388, 371);
             lbl4.Name = "lbl4";
             lbl4.Size = new Size(130, 15);
             lbl4.TabIndex = 8;
@@ -96,16 +104,20 @@
             // 
             // txbNomeMedico
             // 
-            txbNomeMedico.Location = new Point(191, 102);
+            txbNomeMedico.Location = new Point(537, 320);
             txbNomeMedico.Name = "txbNomeMedico";
             txbNomeMedico.Size = new Size(247, 23);
             txbNomeMedico.TabIndex = 9;
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(191, 261);
+            btnCadastrar.FlatStyle = FlatStyle.Flat;
+            btnCadastrar.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCadastrar.ForeColor = SystemColors.ControlLightLight;
+            btnCadastrar.Image = Properties.Resources.btnEntrar;
+            btnCadastrar.Location = new Point(527, 498);
             btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(247, 23);
+            btnCadastrar.Size = new Size(314, 50);
             btnCadastrar.TabIndex = 10;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = true;
@@ -113,17 +125,24 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(191, 151);
+            dateTimePicker1.CalendarFont = new Font("Calibri", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePicker1.CalendarForeColor = SystemColors.WindowText;
+            dateTimePicker1.Font = new Font("Calibri", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
+            dateTimePicker1.Location = new Point(537, 366);
             dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
+            dateTimePicker1.MaxDate = new DateTime(3000, 12, 31, 0, 0, 0, 0);
+            dateTimePicker1.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(247, 23);
+            dateTimePicker1.Size = new Size(247, 22);
             dateTimePicker1.TabIndex = 11;
             // 
             // AgendamentoPaciente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(554, 306);
+            BackgroundImage = Properties.Resources.telaMenu;
+            ClientSize = new Size(1424, 985);
             Controls.Add(dateTimePicker1);
             Controls.Add(btnCadastrar);
             Controls.Add(txbNomeMedico);

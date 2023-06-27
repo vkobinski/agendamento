@@ -11,6 +11,11 @@ namespace AgendamentoCliente.Telas
             InitializeComponent();
         }
 
+        private void Menu_Activated(object sender, EventArgs e)
+        {
+            atualizaTabelaAgendamento();
+        }
+
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -28,7 +33,7 @@ namespace AgendamentoCliente.Telas
             dp.Show();
         }
 
-        private void btnCadastrar_Click_1(object sender, EventArgs e)
+        private void btnCadastrar_Click(object sender, EventArgs e)
         {
             Telas.CadastraMedico cm = new Telas.CadastraMedico();
             cm.Show();
@@ -47,19 +52,17 @@ namespace AgendamentoCliente.Telas
 
         }
 
-        private void btnRemover_Click_1(object sender, EventArgs e)
-        {
-            Telas.RemoveMedico rm = new Telas.RemoveMedico();
-            rm.Show();
-        }
-
-        private async void Menu_Load_1(object sender, EventArgs e)
+        private async void Menu_Load(object sender, EventArgs e)
         {
             atualizaTabelaAgendamento();
         }
 
         private async void atualizaTabelaAgendamento()
         {
+            for (int i = visualizaPaciente.Rows.Count - 2; i >= 0; i--)
+            {
+                visualizaPaciente.Rows.RemoveAt(i);
+            }
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage httpResponseMessage = await httpClient.GetAsync("http://localhost:8080/api/v1/atendimento");
 
@@ -113,23 +116,7 @@ namespace AgendamentoCliente.Telas
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            for (int i = visualizaPaciente.Rows.Count - 2; i >= 0; i--)
-            {
-                visualizaPaciente.Rows.RemoveAt(i);
-            }
             atualizaTabelaAgendamento();
-        }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
-            atualizaTabelaAgendamento();
-        }
-
-        private void btnAgendar_Click_1(object sender, EventArgs e)
-        {
- Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
-            ap.Show();
-
         }
     }
 }

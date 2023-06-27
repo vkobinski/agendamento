@@ -64,6 +64,7 @@
             // 
             // dataNascimento
             // 
+            dataNascimento.Format = DateTimePickerFormat.Short;
             dataNascimento.Location = new Point(178, 99);
             dataNascimento.Name = "dataNascimento";
             dataNascimento.Size = new Size(247, 23);
@@ -87,6 +88,7 @@
             btnCancelar.TabIndex = 10;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // CadastraPaciente
             // 

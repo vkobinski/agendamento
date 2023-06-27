@@ -17,13 +17,11 @@ namespace AgendamentoCliente
             }
             else if (txbUser.Text == "" || txbPassword.Text == "")
             {
-                Telas.Erro erro = new Telas.Erro();
-                erro.Show();
+                txbErro.Visible = true;
             }
             else
             {
-                Telas.Erro erro = new Telas.Erro();
-                erro.Show();
+                txbErro.Visible = true;
             }
         }
     }

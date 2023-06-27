@@ -92,28 +92,5 @@ namespace AgendamentoCliente.Telas
         {
 
         }
-
-        private void btnFoto_Click(object sender, EventArgs e)
-        {
-            //Adicionar Foto do Médico
-            OpenFileDialog open = new OpenFileDialog();
-            // image filters
-            open.Filter = string.Empty;
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                // display image in picture box
-                fotoMedico.Image = new Bitmap(open.FileName);
-                fotoMedico.ImageLocation = open.FileName;
-            }
-
-        }
-
-        private async void btnCadastrar_Click(object sender, EventArgs e)
-        {
-        await enviarForm();
-            Close();
-
-
-        }
     }
 }
