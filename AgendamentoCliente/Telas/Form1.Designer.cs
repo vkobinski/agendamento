@@ -85,7 +85,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            BackgroundImage = Properties.Resources.telaLogin2;
+            BackgroundImage = Properties.Resources.telaLogin;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(1424, 985);
             Controls.Add(txbErro);

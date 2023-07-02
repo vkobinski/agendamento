@@ -28,91 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbl1 = new Label();
-            lbl2 = new Label();
             txbNomePaciente = new TextBox();
             dateTimePicker1 = new DateTimePicker();
             btnDesmarcar = new Button();
             btnCancelar = new Button();
             SuspendLayout();
             // 
-            // lbl1
-            // 
-            lbl1.AutoSize = true;
-            lbl1.Location = new Point(55, 61);
-            lbl1.Name = "lbl1";
-            lbl1.Size = new Size(108, 15);
-            lbl1.TabIndex = 1;
-            lbl1.Text = "Nome do Paciente:";
-            // 
-            // lbl2
-            // 
-            lbl2.AutoSize = true;
-            lbl2.Location = new Point(57, 104);
-            lbl2.Name = "lbl2";
-            lbl2.Size = new Size(117, 15);
-            lbl2.TabIndex = 3;
-            lbl2.Text = "Data de Nascimento:";
-            // 
             // txbNomePaciente
             // 
-            txbNomePaciente.Location = new Point(181, 58);
+            txbNomePaciente.BorderStyle = BorderStyle.None;
+            txbNomePaciente.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txbNomePaciente.Location = new Point(462, 427);
             txbNomePaciente.Name = "txbNomePaciente";
-            txbNomePaciente.Size = new Size(247, 23);
+            txbNomePaciente.Size = new Size(515, 26);
             txbNomePaciente.TabIndex = 4;
             txbNomePaciente.TextChanged += txbNomePaciente_TextChanged;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(181, 98);
+            dateTimePicker1.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
+            dateTimePicker1.ImeMode = ImeMode.NoControl;
+            dateTimePicker1.Location = new Point(462, 519);
+            dateTimePicker1.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(247, 23);
+            dateTimePicker1.Size = new Size(247, 33);
             dateTimePicker1.TabIndex = 5;
             // 
             // btnDesmarcar
             // 
-            btnDesmarcar.Location = new Point(181, 230);
+            btnDesmarcar.BackColor = SystemColors.ControlLightLight;
+            btnDesmarcar.FlatStyle = FlatStyle.Flat;
+            btnDesmarcar.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDesmarcar.ForeColor = SystemColors.ControlLightLight;
+            btnDesmarcar.Image = Properties.Resources.btnEntrar;
+            btnDesmarcar.Location = new Point(460, 642);
             btnDesmarcar.Name = "btnDesmarcar";
-            btnDesmarcar.Size = new Size(101, 23);
+            btnDesmarcar.Size = new Size(200, 50);
             btnDesmarcar.TabIndex = 6;
             btnDesmarcar.Text = "Desmarcar";
-            btnDesmarcar.UseVisualStyleBackColor = true;
+            btnDesmarcar.UseVisualStyleBackColor = false;
             btnDesmarcar.Click += btnDesmarcar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(327, 230);
+            btnCancelar.BackColor = SystemColors.ControlLightLight;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCancelar.ForeColor = SystemColors.ControlLightLight;
+            btnCancelar.Image = Properties.Resources.btnEntrar;
+            btnCancelar.Location = new Point(777, 642);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(101, 23);
+            btnCancelar.Size = new Size(200, 50);
             btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
             // DesmarcaPaciente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(554, 306);
+            BackgroundImage = Properties.Resources.telaDesmarcaPaciente;
+            ClientSize = new Size(1442, 999);
             Controls.Add(btnCancelar);
             Controls.Add(btnDesmarcar);
             Controls.Add(dateTimePicker1);
             Controls.Add(txbNomePaciente);
-            Controls.Add(lbl2);
-            Controls.Add(lbl1);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "DesmarcaPaciente";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Desmarcar";
+            Text = "Desmarcar ";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label lbl1;
-        private Label lbl2;
         private TextBox txbNomePaciente;
         private DateTimePicker dateTimePicker1;
         private Button btnDesmarcar;

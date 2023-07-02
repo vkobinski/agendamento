@@ -10,8 +10,8 @@
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
-            Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
-            ap.Show();
+            Telas.Menu m = new Telas.Menu();
+            m.Show();
         }
 
         private async Task enviarForm()
@@ -53,8 +53,8 @@
         {
             enviarForm();
             Close();
-            Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
-            ap.Show();
+            Telas.Menu m = new Telas.Menu();
+            m.Show();
         }
 
         private void dataNascimento_ValueChanged(object sender, EventArgs e)

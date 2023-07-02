@@ -40,6 +40,8 @@ namespace AgendamentoCliente.Telas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+            Telas.Menu m = new Telas.Menu();
+            m.Show();
         }
 
         private void btnRemover_Click(object sender, EventArgs e)

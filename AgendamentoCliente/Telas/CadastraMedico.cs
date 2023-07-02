@@ -12,6 +12,8 @@ namespace AgendamentoCliente.Telas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+            Telas.Menu m = new Telas.Menu();
+            m.Show();
         }
 
 
@@ -56,7 +58,8 @@ namespace AgendamentoCliente.Telas
         {
             await enviarForm();
             Close();
-
+            Telas.Menu m = new Telas.Menu();
+            m.Show();
         }
 
         private void fotoMedico_Click(object sender, EventArgs e)

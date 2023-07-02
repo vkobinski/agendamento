@@ -72,6 +72,8 @@ namespace AgendamentoCliente.Telas
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             Close();
+            Telas.Menu m = new Telas.Menu();
+            m.Show();
         }
 
         private void btnAgendar_Click(object sender, EventArgs e)
@@ -82,13 +84,6 @@ namespace AgendamentoCliente.Telas
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void btnCadastrar_Click_1(object sender, EventArgs e)
-        {
-            Telas.CadastraPaciente cp = new Telas.CadastraPaciente();
-            cp.Show();
-            Close();
         }
 
         private void txbNomePaciente_TextChanged(object sender, EventArgs e)
@@ -144,6 +139,8 @@ namespace AgendamentoCliente.Telas
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
             Close();
+            Telas.Menu m = new Telas.Menu();
+            m.Show();
         }
 
         private void txbNomePaciente_TextChanged_1(object sender, EventArgs e)

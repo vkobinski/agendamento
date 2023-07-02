@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            lbl1 = new Label();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             txbNomeMedico = new TextBox();
             btnRemover = new Button();
             btnCancelar = new Button();
@@ -41,28 +42,23 @@
             ((System.ComponentModel.ISupportInitialize)visualizaMedico).BeginInit();
             SuspendLayout();
             // 
-            // lbl1
-            // 
-            lbl1.AutoSize = true;
-            lbl1.Location = new Point(55, 61);
-            lbl1.Name = "lbl1";
-            lbl1.Size = new Size(103, 15);
-            lbl1.TabIndex = 2;
-            lbl1.Text = "Nome do Médico:";
-            lbl1.Click += lbl1_Click;
-            // 
             // txbNomeMedico
             // 
-            txbNomeMedico.Location = new Point(164, 58);
+            txbNomeMedico.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txbNomeMedico.Location = new Point(588, 297);
             txbNomeMedico.Name = "txbNomeMedico";
-            txbNomeMedico.Size = new Size(247, 23);
+            txbNomeMedico.Size = new Size(247, 33);
             txbNomeMedico.TabIndex = 5;
             // 
             // btnRemover
             // 
-            btnRemover.Location = new Point(164, 229);
+            btnRemover.FlatStyle = FlatStyle.Flat;
+            btnRemover.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnRemover.ForeColor = SystemColors.ControlLightLight;
+            btnRemover.Image = Properties.Resources.btnEntrar;
+            btnRemover.Location = new Point(459, 749);
             btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(101, 23);
+            btnRemover.Size = new Size(200, 50);
             btnRemover.TabIndex = 7;
             btnRemover.Text = "Remover";
             btnRemover.UseVisualStyleBackColor = true;
@@ -70,9 +66,13 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(310, 229);
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCancelar.ForeColor = SystemColors.ControlLightLight;
+            btnCancelar.Image = Properties.Resources.btnEntrar;
+            btnCancelar.Location = new Point(783, 749);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(101, 23);
+            btnCancelar.Size = new Size(200, 50);
             btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -80,29 +80,57 @@
             // 
             // btnPesquisar
             // 
-            btnPesquisar.Location = new Point(450, 58);
+            btnPesquisar.BackColor = SystemColors.ControlLightLight;
+            btnPesquisar.FlatStyle = FlatStyle.Flat;
+            btnPesquisar.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPesquisar.ForeColor = SystemColors.ControlLightLight;
+            btnPesquisar.Image = Properties.Resources.btnEntrar;
+            btnPesquisar.Location = new Point(851, 301);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(75, 23);
+            btnPesquisar.Size = new Size(107, 29);
             btnPesquisar.TabIndex = 9;
             btnPesquisar.Text = "Pesquisar";
-            btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.TextAlign = ContentAlignment.BottomCenter;
+            btnPesquisar.UseVisualStyleBackColor = false;
             btnPesquisar.Click += btnPesquisar_Click;
             // 
             // visualizaMedico
             // 
-            visualizaMedico.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            visualizaMedico.Columns.AddRange(new DataGridViewColumn[] { Nome, Id });
+            visualizaMedico.BackgroundColor = SystemColors.ControlLightLight;
+            visualizaMedico.BorderStyle = BorderStyle.None;
+            visualizaMedico.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            visualizaMedico.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(76, 4, 44);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            visualizaMedico.DefaultCellStyle = dataGridViewCellStyle1;
-            visualizaMedico.Location = new Point(10, 86);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            visualizaMedico.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            visualizaMedico.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            visualizaMedico.Columns.AddRange(new DataGridViewColumn[] { Nome, Id });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            visualizaMedico.DefaultCellStyle = dataGridViewCellStyle2;
+            visualizaMedico.GridColor = Color.FromArgb(76, 4, 44);
+            visualizaMedico.Location = new Point(450, 426);
             visualizaMedico.Margin = new Padding(3, 2, 3, 2);
             visualizaMedico.Name = "visualizaMedico";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle3.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(76, 4, 44);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            visualizaMedico.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            visualizaMedico.RowHeadersVisible = false;
             visualizaMedico.RowHeadersWidth = 51;
             visualizaMedico.RowTemplate.Height = 45;
             visualizaMedico.Size = new Size(533, 80);
@@ -126,7 +154,8 @@
             // medicoExcluido
             // 
             medicoExcluido.AutoSize = true;
-            medicoExcluido.Location = new Point(186, 191);
+            medicoExcluido.BackColor = SystemColors.ControlLightLight;
+            medicoExcluido.Location = new Point(640, 559);
             medicoExcluido.Name = "medicoExcluido";
             medicoExcluido.Size = new Size(186, 15);
             medicoExcluido.TabIndex = 11;
@@ -137,19 +166,20 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(554, 306);
+            BackgroundImage = Properties.Resources.telaRemoveMedico;
+            ClientSize = new Size(1442, 999);
             Controls.Add(medicoExcluido);
             Controls.Add(visualizaMedico);
             Controls.Add(btnPesquisar);
             Controls.Add(btnCancelar);
             Controls.Add(btnRemover);
             Controls.Add(txbNomeMedico);
-            Controls.Add(lbl1);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "RemoveMedico";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Remover";
+            Text = "Remover Médico";
             Load += RemoveMedico_Load;
             ((System.ComponentModel.ISupportInitialize)visualizaMedico).EndInit();
             ResumeLayout(false);
@@ -157,8 +187,6 @@
         }
 
         #endregion
-
-        private Label lbl1;
         private TextBox txbNomeMedico;
         private Button btnRemover;
         private Button btnCancelar;

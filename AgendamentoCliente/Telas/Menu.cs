@@ -14,6 +14,7 @@ namespace AgendamentoCliente.Telas
         private void Menu_Activated(object sender, EventArgs e)
         {
             atualizaTabelaAgendamento();
+            Visible = true;
         }
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
@@ -25,31 +26,35 @@ namespace AgendamentoCliente.Telas
         {
             Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
             ap.Show();
+            Visible = false;
         }
 
         private void btnDesmarcar_Click(object sender, EventArgs e)
         {
             Telas.DesmarcaPaciente dp = new Telas.DesmarcaPaciente();
             dp.Show();
+            Visible = false;
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             Telas.CadastraMedico cm = new Telas.CadastraMedico();
             cm.Show();
+            Visible = false;
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
             Telas.RemoveMedico rm = new Telas.RemoveMedico();
             rm.Show();
+            Visible = false;
         }
 
         private void btnAgendar_Click(object sender, EventArgs e)
         {
             Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
             ap.Show();
-
+            Visible = false;
         }
 
         private async void Menu_Load(object sender, EventArgs e)
@@ -117,6 +122,14 @@ namespace AgendamentoCliente.Telas
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             atualizaTabelaAgendamento();
+        }
+
+        private void btnCadastrarPaciente_Click(object sender, EventArgs e)
+        {
+            Telas.CadastraPaciente cp = new Telas.CadastraPaciente();
+            cp.Show();
+            Visible = false;
+
         }
     }
 }
