@@ -28,78 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txbNomePaciente = new TextBox();
-            dataNascimento = new DateTimePicker();
-            btnConfirmar = new Button();
-            btnCancelar = new Button();
-            SuspendLayout();
+            this.txbNomePaciente = new System.Windows.Forms.TextBox();
+            this.dataNascimento = new System.Windows.Forms.DateTimePicker();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // txbNomePaciente
             // 
-            txbNomePaciente.BorderStyle = BorderStyle.None;
-            txbNomePaciente.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txbNomePaciente.Location = new Point(461, 427);
-            txbNomePaciente.Name = "txbNomePaciente";
-            txbNomePaciente.Size = new Size(517, 26);
-            txbNomePaciente.TabIndex = 2;
-            txbNomePaciente.TextChanged += txbNomePaciente_TextChanged;
+            this.txbNomePaciente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbNomePaciente.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbNomePaciente.Location = new System.Drawing.Point(461, 427);
+            this.txbNomePaciente.Name = "txbNomePaciente";
+            this.txbNomePaciente.Size = new System.Drawing.Size(517, 26);
+            this.txbNomePaciente.TabIndex = 2;
             // 
             // dataNascimento
             // 
-            dataNascimento.CalendarFont = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataNascimento.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataNascimento.Format = DateTimePickerFormat.Short;
-            dataNascimento.Location = new Point(461, 520);
-            dataNascimento.Name = "dataNascimento";
-            dataNascimento.Size = new Size(247, 33);
-            dataNascimento.TabIndex = 8;
+            this.dataNascimento.CalendarFont = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dataNascimento.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataNascimento.Location = new System.Drawing.Point(461, 520);
+            this.dataNascimento.Name = "dataNascimento";
+            this.dataNascimento.Size = new System.Drawing.Size(247, 33);
+            this.dataNascimento.TabIndex = 8;
             // 
             // btnConfirmar
             // 
-            btnConfirmar.FlatStyle = FlatStyle.Flat;
-            btnConfirmar.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnConfirmar.ForeColor = SystemColors.ControlLightLight;
-            btnConfirmar.Image = Properties.Resources.btnEntrar;
-            btnConfirmar.Location = new Point(461, 646);
-            btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(200, 50);
-            btnConfirmar.TabIndex = 9;
-            btnConfirmar.Text = "Confirmar";
-            btnConfirmar.UseVisualStyleBackColor = true;
-            btnConfirmar.Click += btnConfirmar_Click_1;
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmar.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnConfirmar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnConfirmar.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnConfirmar.Location = new System.Drawing.Point(461, 646);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(200, 50);
+            this.btnConfirmar.TabIndex = 9;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
-            btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancelar.ForeColor = SystemColors.ControlLightLight;
-            btnCancelar.Image = Properties.Resources.btnEntrar;
-            btnCancelar.Location = new Point(778, 646);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(200, 50);
-            btnCancelar.TabIndex = 10;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelar.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnCancelar.Location = new System.Drawing.Point(778, 646);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(200, 50);
+            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // CadastraPaciente
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.telaCadastroPaciente;
-            ClientSize = new Size(1442, 999);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnConfirmar);
-            Controls.Add(dataNascimento);
-            Controls.Add(txbNomePaciente);
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "CadastraPaciente";
-            ShowIcon = false;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cadastrar";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::AgendamentoCliente.Properties.Resources.telaCadastroPaciente;
+            this.ClientSize = new System.Drawing.Size(1442, 999);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.dataNascimento);
+            this.Controls.Add(this.txbNomePaciente);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "CadastraPaciente";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastrar";
+            this.Load += new System.EventHandler(this.CadastraPaciente_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

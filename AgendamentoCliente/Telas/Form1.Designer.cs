@@ -29,78 +29,80 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            btnEntrar = new Button();
-            txbUser = new TextBox();
-            txbPassword = new TextBox();
-            txbErro = new Label();
-            SuspendLayout();
+            this.btnEntrar = new System.Windows.Forms.Button();
+            this.txbUser = new System.Windows.Forms.TextBox();
+            this.txbPassword = new System.Windows.Forms.TextBox();
+            this.txbErro = new System.Windows.Forms.Label();
+            this.SuspendLayout();
             // 
             // btnEntrar
             // 
-            btnEntrar.FlatStyle = FlatStyle.Flat;
-            btnEntrar.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            btnEntrar.ForeColor = SystemColors.ControlLightLight;
-            btnEntrar.Image = Properties.Resources.btnEntrar;
-            btnEntrar.Location = new Point(560, 638);
-            btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(318, 50);
-            btnEntrar.TabIndex = 0;
-            btnEntrar.Text = "Entrar";
-            btnEntrar.UseVisualStyleBackColor = true;
-            btnEntrar.Click += btnEntrar_Click;
+            this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrar.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEntrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEntrar.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnEntrar.Location = new System.Drawing.Point(562, 637);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(318, 50);
+            this.btnEntrar.TabIndex = 0;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click_1);
             // 
             // txbUser
             // 
-            txbUser.BorderStyle = BorderStyle.None;
-            txbUser.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txbUser.Location = new Point(560, 400);
-            txbUser.Name = "txbUser";
-            txbUser.Size = new Size(318, 30);
-            txbUser.TabIndex = 3;
+            this.txbUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbUser.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbUser.Location = new System.Drawing.Point(562, 400);
+            this.txbUser.Name = "txbUser";
+            this.txbUser.Size = new System.Drawing.Size(318, 30);
+            this.txbUser.TabIndex = 3;
             // 
             // txbPassword
             // 
-            txbPassword.BorderStyle = BorderStyle.None;
-            txbPassword.Font = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txbPassword.Location = new Point(560, 502);
-            txbPassword.Name = "txbPassword";
-            txbPassword.PasswordChar = '*';
-            txbPassword.Size = new Size(318, 30);
-            txbPassword.TabIndex = 4;
+            this.txbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbPassword.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbPassword.Location = new System.Drawing.Point(562, 502);
+            this.txbPassword.Name = "txbPassword";
+            this.txbPassword.PasswordChar = '*';
+            this.txbPassword.Size = new System.Drawing.Size(318, 30);
+            this.txbPassword.TabIndex = 4;
             // 
             // txbErro
             // 
-            txbErro.AutoSize = true;
-            txbErro.Font = new Font("Calibri", 12F, FontStyle.Underline, GraphicsUnit.Point);
-            txbErro.ForeColor = Color.FromArgb(76, 4, 44);
-            txbErro.Location = new Point(631, 583);
-            txbErro.Name = "txbErro";
-            txbErro.Size = new Size(182, 19);
-            txbErro.TabIndex = 5;
-            txbErro.Text = "E-mail ou Senha Incorretos";
-            txbErro.Visible = false;
+            this.txbErro.AutoSize = true;
+            this.txbErro.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.txbErro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(4)))), ((int)(((byte)(44)))));
+            this.txbErro.Location = new System.Drawing.Point(631, 583);
+            this.txbErro.Name = "txbErro";
+            this.txbErro.Size = new System.Drawing.Size(182, 19);
+            this.txbErro.TabIndex = 5;
+            this.txbErro.Text = "E-mail ou Senha Incorretos";
+            this.txbErro.Visible = false;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLightLight;
-            BackgroundImage = Properties.Resources.telaLogin;
-            BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(1424, 985);
-            Controls.Add(txbErro);
-            Controls.Add(txbPassword);
-            Controls.Add(txbUser);
-            Controls.Add(btnEntrar);
-            DoubleBuffered = true;
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximizeBox = false;
-            Name = "Form1";
-            ShowIcon = false;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Login";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackgroundImage = global::AgendamentoCliente.Properties.Resources.telaLogin;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1424, 791);
+            this.Controls.Add(this.txbErro);
+            this.Controls.Add(this.txbPassword);
+            this.Controls.Add(this.txbUser);
+            this.Controls.Add(this.btnEntrar);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "Form1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

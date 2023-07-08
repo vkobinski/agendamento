@@ -28,199 +28,207 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            btnAgendar = new Button();
-            btnDesmarcar = new Button();
-            btnCadastrar = new Button();
-            btnRemover = new Button();
-            visualizaPaciente = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            Nome = new DataGridViewTextBoxColumn();
-            DataNascimento = new DataGridViewTextBoxColumn();
-            btnAtualizar = new Button();
-            btnCadastrarPaciente = new Button();
-            ((System.ComponentModel.ISupportInitialize)visualizaPaciente).BeginInit();
-            SuspendLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnAgendar = new System.Windows.Forms.Button();
+            this.btnDesmarcar = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.visualizaPaciente = new System.Windows.Forms.DataGridView();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnCadastrarPaciente = new System.Windows.Forms.Button();
+            this.idAtendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.visualizaPaciente)).BeginInit();
+            this.SuspendLayout();
             // 
             // btnAgendar
             // 
-            btnAgendar.BackColor = SystemColors.ControlLightLight;
-            btnAgendar.FlatStyle = FlatStyle.Flat;
-            btnAgendar.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAgendar.ForeColor = SystemColors.ControlLightLight;
-            btnAgendar.Image = Properties.Resources.btnEntrar;
-            btnAgendar.Location = new Point(1109, 342);
-            btnAgendar.Name = "btnAgendar";
-            btnAgendar.Size = new Size(200, 48);
-            btnAgendar.TabIndex = 2;
-            btnAgendar.Text = "Agendar Paciente";
-            btnAgendar.UseVisualStyleBackColor = false;
-            btnAgendar.Click += btnAgendar_Click;
+            this.btnAgendar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgendar.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAgendar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAgendar.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnAgendar.Location = new System.Drawing.Point(1112, 343);
+            this.btnAgendar.Name = "btnAgendar";
+            this.btnAgendar.Size = new System.Drawing.Size(200, 48);
+            this.btnAgendar.TabIndex = 2;
+            this.btnAgendar.Text = "Agendar Paciente";
+            this.btnAgendar.UseVisualStyleBackColor = false;
+            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click_1);
             // 
             // btnDesmarcar
             // 
-            btnDesmarcar.BackColor = SystemColors.ControlLightLight;
-            btnDesmarcar.FlatStyle = FlatStyle.Flat;
-            btnDesmarcar.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDesmarcar.ForeColor = SystemColors.ControlLightLight;
-            btnDesmarcar.Image = Properties.Resources.btnEntrar;
-            btnDesmarcar.Location = new Point(407, 740);
-            btnDesmarcar.Name = "btnDesmarcar";
-            btnDesmarcar.Size = new Size(200, 50);
-            btnDesmarcar.TabIndex = 3;
-            btnDesmarcar.Text = "Desmarcar Paciente";
-            btnDesmarcar.UseVisualStyleBackColor = false;
-            btnDesmarcar.Click += btnDesmarcar_Click;
+            this.btnDesmarcar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDesmarcar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesmarcar.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDesmarcar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDesmarcar.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnDesmarcar.Location = new System.Drawing.Point(408, 740);
+            this.btnDesmarcar.Name = "btnDesmarcar";
+            this.btnDesmarcar.Size = new System.Drawing.Size(200, 50);
+            this.btnDesmarcar.TabIndex = 3;
+            this.btnDesmarcar.Text = "Desmarcar Paciente";
+            this.btnDesmarcar.UseVisualStyleBackColor = false;
+            this.btnDesmarcar.Click += new System.EventHandler(this.btnDesmarcar_Click_1);
             // 
             // btnCadastrar
             // 
-            btnCadastrar.BackColor = SystemColors.ControlLightLight;
-            btnCadastrar.FlatStyle = FlatStyle.Flat;
-            btnCadastrar.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCadastrar.ForeColor = SystemColors.ControlLightLight;
-            btnCadastrar.Image = Properties.Resources.btnEntrar;
-            btnCadastrar.Location = new Point(1109, 437);
-            btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(200, 48);
-            btnCadastrar.TabIndex = 4;
-            btnCadastrar.Text = "Cadastrar Médico";
-            btnCadastrar.UseVisualStyleBackColor = false;
-            btnCadastrar.Click += btnCadastrar_Click;
+            this.btnCadastrar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCadastrar.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnCadastrar.Location = new System.Drawing.Point(1112, 434);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(200, 48);
+            this.btnCadastrar.TabIndex = 4;
+            this.btnCadastrar.Text = "Cadastrar Médico";
+            this.btnCadastrar.UseVisualStyleBackColor = false;
             // 
             // btnRemover
             // 
-            btnRemover.BackColor = SystemColors.ControlLightLight;
-            btnRemover.FlatStyle = FlatStyle.Flat;
-            btnRemover.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnRemover.ForeColor = SystemColors.ControlLightLight;
-            btnRemover.Image = Properties.Resources.btnEntrar;
-            btnRemover.Location = new Point(1109, 528);
-            btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(200, 50);
-            btnRemover.TabIndex = 5;
-            btnRemover.Text = "Remover Médico";
-            btnRemover.UseVisualStyleBackColor = false;
-            btnRemover.Click += btnRemover_Click;
+            this.btnRemover.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemover.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRemover.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRemover.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnRemover.Location = new System.Drawing.Point(1112, 529);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(200, 50);
+            this.btnRemover.TabIndex = 5;
+            this.btnRemover.Text = "Remover Médico";
+            this.btnRemover.UseVisualStyleBackColor = false;
             // 
             // visualizaPaciente
             // 
-            visualizaPaciente.BackgroundColor = SystemColors.ControlLightLight;
-            visualizaPaciente.BorderStyle = BorderStyle.None;
-            visualizaPaciente.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            visualizaPaciente.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(76, 4, 44);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            visualizaPaciente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            visualizaPaciente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            visualizaPaciente.Columns.AddRange(new DataGridViewColumn[] { ID, Nome, DataNascimento });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle2.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            visualizaPaciente.DefaultCellStyle = dataGridViewCellStyle2;
-            visualizaPaciente.GridColor = Color.FromArgb(76, 4, 44);
-            visualizaPaciente.Location = new Point(138, 321);
-            visualizaPaciente.Margin = new Padding(3, 2, 3, 2);
-            visualizaPaciente.Name = "visualizaPaciente";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle3.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(76, 4, 44);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            visualizaPaciente.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            visualizaPaciente.RowHeadersVisible = false;
-            visualizaPaciente.RowHeadersWidth = 51;
-            visualizaPaciente.RowTemplate.Height = 29;
-            visualizaPaciente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            visualizaPaciente.Size = new Size(865, 335);
-            visualizaPaciente.TabIndex = 6;
-            // 
-            // ID
-            // 
-            ID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ID.HeaderText = "Médico";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            // 
-            // Nome
-            // 
-            Nome.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Nome.HeaderText = "Paciente";
-            Nome.MinimumWidth = 6;
-            Nome.Name = "Nome";
-            // 
-            // DataNascimento
-            // 
-            DataNascimento.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DataNascimento.HeaderText = "Data de Atendimento";
-            DataNascimento.MinimumWidth = 6;
-            DataNascimento.Name = "DataNascimento";
+            this.visualizaPaciente.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.visualizaPaciente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.visualizaPaciente.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.visualizaPaciente.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(4)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.visualizaPaciente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.visualizaPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.visualizaPaciente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idAtendimento,
+            this.ID,
+            this.Nome,
+            this.DataNascimento});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.visualizaPaciente.DefaultCellStyle = dataGridViewCellStyle2;
+            this.visualizaPaciente.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(4)))), ((int)(((byte)(44)))));
+            this.visualizaPaciente.Location = new System.Drawing.Point(94, 321);
+            this.visualizaPaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.visualizaPaciente.Name = "visualizaPaciente";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(4)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.visualizaPaciente.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.visualizaPaciente.RowHeadersVisible = false;
+            this.visualizaPaciente.RowHeadersWidth = 51;
+            this.visualizaPaciente.RowTemplate.Height = 29;
+            this.visualizaPaciente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.visualizaPaciente.Size = new System.Drawing.Size(865, 335);
+            this.visualizaPaciente.TabIndex = 6;
             // 
             // btnAtualizar
             // 
-            btnAtualizar.BackColor = SystemColors.ControlLightLight;
-            btnAtualizar.FlatStyle = FlatStyle.Flat;
-            btnAtualizar.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAtualizar.ForeColor = SystemColors.ControlLightLight;
-            btnAtualizar.Image = Properties.Resources.btnEntrar;
-            btnAtualizar.Location = new Point(138, 740);
-            btnAtualizar.Name = "btnAtualizar";
-            btnAtualizar.Size = new Size(200, 50);
-            btnAtualizar.TabIndex = 7;
-            btnAtualizar.Text = "Atualizar";
-            btnAtualizar.UseVisualStyleBackColor = false;
-            btnAtualizar.Click += btnAtualizar_Click;
+            this.btnAtualizar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizar.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAtualizar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAtualizar.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnAtualizar.Location = new System.Drawing.Point(138, 740);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(200, 50);
+            this.btnAtualizar.TabIndex = 7;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = false;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click_1);
             // 
             // btnCadastrarPaciente
             // 
-            btnCadastrarPaciente.BackColor = SystemColors.ControlLightLight;
-            btnCadastrarPaciente.FlatStyle = FlatStyle.Flat;
-            btnCadastrarPaciente.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCadastrarPaciente.ForeColor = SystemColors.ControlLightLight;
-            btnCadastrarPaciente.Image = Properties.Resources.btnEntrar;
-            btnCadastrarPaciente.Location = new Point(1109, 623);
-            btnCadastrarPaciente.Name = "btnCadastrarPaciente";
-            btnCadastrarPaciente.Size = new Size(200, 50);
-            btnCadastrarPaciente.TabIndex = 8;
-            btnCadastrarPaciente.Text = "Cadastrar Paciente";
-            btnCadastrarPaciente.UseVisualStyleBackColor = false;
-            btnCadastrarPaciente.Click += btnCadastrarPaciente_Click;
+            this.btnCadastrarPaciente.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCadastrarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarPaciente.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCadastrarPaciente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCadastrarPaciente.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnCadastrarPaciente.Location = new System.Drawing.Point(1097, 615);
+            this.btnCadastrarPaciente.Name = "btnCadastrarPaciente";
+            this.btnCadastrarPaciente.Size = new System.Drawing.Size(215, 68);
+            this.btnCadastrarPaciente.TabIndex = 8;
+            this.btnCadastrarPaciente.Text = "Cadastrar Paciente";
+            this.btnCadastrarPaciente.UseVisualStyleBackColor = false;
+            // 
+            // idAtendimento
+            // 
+            this.idAtendimento.HeaderText = "ID";
+            this.idAtendimento.Name = "idAtendimento";
+            this.idAtendimento.ReadOnly = true;
+            this.idAtendimento.Visible = false;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.HeaderText = "Médico";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            // 
+            // Nome
+            // 
+            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nome.HeaderText = "Paciente";
+            this.Nome.MinimumWidth = 6;
+            this.Nome.Name = "Nome";
+            // 
+            // DataNascimento
+            // 
+            this.DataNascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataNascimento.HeaderText = "Data de Atendimento";
+            this.DataNascimento.MinimumWidth = 6;
+            this.DataNascimento.Name = "DataNascimento";
             // 
             // Menu
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.TelaMenu1;
-            ClientSize = new Size(1442, 999);
-            Controls.Add(btnCadastrarPaciente);
-            Controls.Add(btnAtualizar);
-            Controls.Add(visualizaPaciente);
-            Controls.Add(btnRemover);
-            Controls.Add(btnCadastrar);
-            Controls.Add(btnDesmarcar);
-            Controls.Add(btnAgendar);
-            MaximizeBox = false;
-            Name = "Menu";
-            ShowIcon = false;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Menu";
-            Activated += Menu_Activated;
-            FormClosed += Menu_FormClosed;
-            Load += Menu_Load;
-            ((System.ComponentModel.ISupportInitialize)visualizaPaciente).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::AgendamentoCliente.Properties.Resources.TelaMenu1;
+            this.ClientSize = new System.Drawing.Size(1442, 791);
+            this.Controls.Add(this.btnCadastrarPaciente);
+            this.Controls.Add(this.btnAtualizar);
+            this.Controls.Add(this.visualizaPaciente);
+            this.Controls.Add(this.btnRemover);
+            this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.btnDesmarcar);
+            this.Controls.Add(this.btnAgendar);
+            this.MaximizeBox = false;
+            this.Name = "Menu";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Menu";
+            this.Load += new System.EventHandler(this.Menu_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.visualizaPaciente)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -230,9 +238,10 @@
         private Button btnRemover;
         private DataGridView visualizaPaciente;
         private Button btnAtualizar;
+        private Button btnCadastrarPaciente;
+        private DataGridViewTextBoxColumn idAtendimento;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn DataNascimento;
-        private Button btnCadastrarPaciente;
     }
 }

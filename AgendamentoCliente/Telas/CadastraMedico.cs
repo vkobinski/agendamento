@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace AgendamentoCliente.Telas
+﻿namespace AgendamentoCliente.Telas
 {
     public partial class CadastraMedico : Form
     {
@@ -92,6 +90,11 @@ namespace AgendamentoCliente.Telas
         }
 
         private void txbEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CadastraMedico_Load(object sender, EventArgs e)
         {
 
         }

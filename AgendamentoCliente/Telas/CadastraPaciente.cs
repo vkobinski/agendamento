@@ -67,6 +67,9 @@
 
         }
 
+        private void CadastraPaciente_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -83,11 +83,13 @@ namespace AgendamentoCliente.Telas
                 DataGridViewTextBoxCell nomeMedicoCelula = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell nomePacienteCelula = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell dataCelula = new DataGridViewTextBoxCell();
+                DataGridViewTextBoxCell idCelula = new DataGridViewTextBoxCell();
 
 
 
                 nomePacienteCelula.Value = atendimento.Paciente.NomeCompleto;
                 nomeMedicoCelula.Value = atendimento.Medico.NomeCompleto;
+                idCelula.Value = atendimento.AtendimentoId;
 
                 string inputString = atendimento.DataAtendimento;
 
@@ -107,7 +109,8 @@ namespace AgendamentoCliente.Telas
 
                 dataCelula.Value = formattedDateTime;
 
-                linha.Cells.AddRange(nomeMedicoCelula, nomePacienteCelula, dataCelula);
+                linha.Cells.AddRange(idCelula, nomeMedicoCelula, nomePacienteCelula, dataCelula);
+
 
                 visualizaPaciente.Rows.Add(linha);
 
@@ -131,5 +134,72 @@ namespace AgendamentoCliente.Telas
             Visible = false;
 
         }
+
+        private void btnAgendar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Menu_Load_1(object sender, EventArgs e)
+        {
+            atualizaTabelaAgendamento();
+            Visible = true;
+
+        }
+
+        private void btnAtualizar_Click_1(object sender, EventArgs e)
+        {
+            atualizaTabelaAgendamento();
+
+        }
+
+        private async void desmarcar(String idAtendimento)
+        {
+
+            HttpClient httpClient = new HttpClient();
+
+            Dictionary<string, string> formData = new Dictionary<string, string>
+        {
+            { "idAtendimento",  idAtendimento},
+        };
+            var content = new FormUrlEncodedContent(formData);
+            try
+            {
+                HttpResponseMessage response = await httpClient.PutAsync("http://localhost:8080/api/v1/atendimento/desmarcar", content);
+
+                // Check response status
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("Form data sent successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Failed to send form data. Response status: " + response.StatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+        }
+
+
+        private void btnDesmarcar_Click_1(object sender, EventArgs e)
+        {
+            if (visualizaPaciente.SelectedRows.Count < 1 || visualizaPaciente.SelectedRows[0].Cells.Count < 1) return;
+
+            DataGridViewCell selectedCell = visualizaPaciente.SelectedRows[0].Cells[0];
+
+            if (!(selectedCell is DataGridViewTextBoxCell) || selectedCell.Value == null) return;
+
+            String idAtendimento = selectedCell.Value.ToString();
+
+            desmarcar(idAtendimento);
+
+            atualizaTabelaAgendamento();
+        }
+
     }
+
 }
