@@ -137,6 +137,9 @@ namespace AgendamentoCliente.Telas
 
         private void btnAgendar_Click_1(object sender, EventArgs e)
         {
+ Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
+            ap.Show();
+            Visible = false;
 
         }
 
@@ -200,6 +203,30 @@ namespace AgendamentoCliente.Telas
             atualizaTabelaAgendamento();
         }
 
+        private void btnCadastrar_Click_1(object sender, EventArgs e)
+        {
+ Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
+            ap.Show();
+            Visible = false;
+
+
+        }
+
+        private void btnRemover_Click_1(object sender, EventArgs e)
+        {
+ Telas.RemoveMedico rm = new Telas.RemoveMedico();
+            rm.Show();
+            Visible = false;
+
+        }
+
+        private void btnCadastrarPaciente_Click_1(object sender, EventArgs e)
+        {
+ Telas.CadastraPaciente cp = new Telas.CadastraPaciente();
+            cp.Show();
+            Visible = false;
+
+        }
     }
 
 }

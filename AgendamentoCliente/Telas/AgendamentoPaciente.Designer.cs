@@ -28,95 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txbNomePaciente = new TextBox();
-            btnCancelar = new Button();
-            btnAgendar = new Button();
-            txbNomeMedico = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            SuspendLayout();
+            this.txbNomePaciente = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAgendar = new System.Windows.Forms.Button();
+            this.txbNomeMedico = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.SuspendLayout();
             // 
             // txbNomePaciente
             // 
-            txbNomePaciente.BorderStyle = BorderStyle.None;
-            txbNomePaciente.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txbNomePaciente.Location = new Point(461, 379);
-            txbNomePaciente.Name = "txbNomePaciente";
-            txbNomePaciente.Size = new Size(518, 26);
-            txbNomePaciente.TabIndex = 1;
-            txbNomePaciente.TextChanged += txbNomePaciente_TextChanged_1;
+            this.txbNomePaciente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbNomePaciente.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbNomePaciente.Location = new System.Drawing.Point(461, 379);
+            this.txbNomePaciente.Name = "txbNomePaciente";
+            this.txbNomePaciente.Size = new System.Drawing.Size(518, 26);
+            this.txbNomePaciente.TabIndex = 1;
             // 
             // btnCancelar
             // 
-            btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancelar.ForeColor = SystemColors.ControlLightLight;
-            btnCancelar.Image = Properties.Resources.btnEntrar;
-            btnCancelar.Location = new Point(779, 693);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(200, 50);
-            btnCancelar.TabIndex = 4;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click_1;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelar.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnCancelar.Location = new System.Drawing.Point(779, 693);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(200, 50);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnAgendar
             // 
-            btnAgendar.FlatStyle = FlatStyle.Flat;
-            btnAgendar.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgendar.ForeColor = SystemColors.ControlLightLight;
-            btnAgendar.Image = Properties.Resources.btnEntrar;
-            btnAgendar.Location = new Point(461, 693);
-            btnAgendar.Name = "btnAgendar";
-            btnAgendar.Size = new Size(200, 50);
-            btnAgendar.TabIndex = 5;
-            btnAgendar.Text = "Agendar";
-            btnAgendar.UseVisualStyleBackColor = true;
-            btnAgendar.Click += btnAgendar_Click_1;
+            this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgendar.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAgendar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAgendar.Image = global::AgendamentoCliente.Properties.Resources.btnEntrar;
+            this.btnAgendar.Location = new System.Drawing.Point(461, 693);
+            this.btnAgendar.Name = "btnAgendar";
+            this.btnAgendar.Size = new System.Drawing.Size(200, 50);
+            this.btnAgendar.TabIndex = 5;
+            this.btnAgendar.Text = "Agendar";
+            this.btnAgendar.UseVisualStyleBackColor = true;
+            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click_2);
             // 
             // txbNomeMedico
             // 
-            txbNomeMedico.BorderStyle = BorderStyle.None;
-            txbNomeMedico.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txbNomeMedico.Location = new Point(461, 479);
-            txbNomeMedico.Name = "txbNomeMedico";
-            txbNomeMedico.Size = new Size(518, 26);
-            txbNomeMedico.TabIndex = 9;
+            this.txbNomeMedico.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txbNomeMedico.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbNomeMedico.Location = new System.Drawing.Point(461, 479);
+            this.txbNomeMedico.Name = "txbNomeMedico";
+            this.txbNomeMedico.Size = new System.Drawing.Size(518, 26);
+            this.txbNomeMedico.TabIndex = 9;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.CalendarFont = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker1.CalendarForeColor = SystemColors.WindowText;
-            dateTimePicker1.CalendarTitleForeColor = SystemColors.ControlText;
-            dateTimePicker1.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(461, 571);
-            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
-            dateTimePicker1.MaxDate = new DateTime(3000, 12, 31, 0, 0, 0, 0);
-            dateTimePicker1.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(286, 33);
-            dateTimePicker1.TabIndex = 11;
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.SystemColors.WindowText;
+            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.SystemColors.ControlText;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(461, 571);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker1.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
+            this.dateTimePicker1.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(286, 33);
+            this.dateTimePicker1.TabIndex = 11;
             // 
             // AgendamentoPaciente
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.telaAgendamento;
-            ClientSize = new Size(1424, 985);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(txbNomeMedico);
-            Controls.Add(btnAgendar);
-            Controls.Add(btnCancelar);
-            Controls.Add(txbNomePaciente);
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "AgendamentoPaciente";
-            ShowIcon = false;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Agendar";
-            Load += AgendamentoPaciente_Load_1;
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::AgendamentoCliente.Properties.Resources.telaAgendamento;
+            this.ClientSize = new System.Drawing.Size(1424, 791);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.txbNomeMedico);
+            this.Controls.Add(this.btnAgendar);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.txbNomePaciente);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "AgendamentoPaciente";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Agendar";
+            this.Load += new System.EventHandler(this.AgendamentoPaciente_Load_2);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

@@ -148,5 +148,45 @@ namespace AgendamentoCliente.Telas
 
         }
 
+        private void AgendamentoPaciente_Load_2(object sender, EventArgs e)
+        {
+        }
+
+        private async void btnAgendar_Click_2(object sender, EventArgs e)
+        {
+ string nomePaciente = txbNomePaciente.Text;
+            string nomeMedico = txbNomeMedico.Text;
+            string data = dateTimePicker1.Text;
+
+            Debug.WriteLine(nomePaciente);
+
+            HttpClient http = new HttpClient();
+
+
+            Dictionary<string, string> formData = new Dictionary<string, string>
+        {
+                {"nomePaciente", nomePaciente },
+                {"nomeMedico", nomeMedico },
+                {"dataHora", data }
+        };
+            var content = new FormUrlEncodedContent(formData);
+            try
+            {
+                HttpResponseMessage response = await http.PostAsync("http://localhost:8080/api/v1/atendimento", content);
+                string stringResponse = await response.Content.ReadAsStringAsync();
+
+                Atendimento atendimento = JsonConvert.DeserializeObject<Atendimento>(stringResponse);
+
+                Debug.WriteLine(atendimento.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+            Close();
+            Telas.Menu m = new Telas.Menu();
+            m.Show();
+
+        }
     }
 }

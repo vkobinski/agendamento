@@ -36,12 +36,12 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.visualizaPaciente = new System.Windows.Forms.DataGridView();
-            this.btnAtualizar = new System.Windows.Forms.Button();
-            this.btnCadastrarPaciente = new System.Windows.Forms.Button();
             this.idAtendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnCadastrarPaciente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.visualizaPaciente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +88,7 @@
             this.btnCadastrar.TabIndex = 4;
             this.btnCadastrar.Text = "Cadastrar Médico";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click_1);
             // 
             // btnRemover
             // 
@@ -102,6 +103,7 @@
             this.btnRemover.TabIndex = 5;
             this.btnRemover.Text = "Remover Médico";
             this.btnRemover.UseVisualStyleBackColor = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click_1);
             // 
             // visualizaPaciente
             // 
@@ -150,6 +152,34 @@
             this.visualizaPaciente.Size = new System.Drawing.Size(865, 335);
             this.visualizaPaciente.TabIndex = 6;
             // 
+            // idAtendimento
+            // 
+            this.idAtendimento.HeaderText = "ID";
+            this.idAtendimento.Name = "idAtendimento";
+            this.idAtendimento.ReadOnly = true;
+            this.idAtendimento.Visible = false;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.HeaderText = "Médico";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            // 
+            // Nome
+            // 
+            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nome.HeaderText = "Paciente";
+            this.Nome.MinimumWidth = 6;
+            this.Nome.Name = "Nome";
+            // 
+            // DataNascimento
+            // 
+            this.DataNascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataNascimento.HeaderText = "Data de Atendimento";
+            this.DataNascimento.MinimumWidth = 6;
+            this.DataNascimento.Name = "DataNascimento";
+            // 
             // btnAtualizar
             // 
             this.btnAtualizar.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -178,34 +208,7 @@
             this.btnCadastrarPaciente.TabIndex = 8;
             this.btnCadastrarPaciente.Text = "Cadastrar Paciente";
             this.btnCadastrarPaciente.UseVisualStyleBackColor = false;
-            // 
-            // idAtendimento
-            // 
-            this.idAtendimento.HeaderText = "ID";
-            this.idAtendimento.Name = "idAtendimento";
-            this.idAtendimento.ReadOnly = true;
-            this.idAtendimento.Visible = false;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.HeaderText = "Médico";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            // 
-            // Nome
-            // 
-            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nome.HeaderText = "Paciente";
-            this.Nome.MinimumWidth = 6;
-            this.Nome.Name = "Nome";
-            // 
-            // DataNascimento
-            // 
-            this.DataNascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DataNascimento.HeaderText = "Data de Atendimento";
-            this.DataNascimento.MinimumWidth = 6;
-            this.DataNascimento.Name = "DataNascimento";
+            this.btnCadastrarPaciente.Click += new System.EventHandler(this.btnCadastrarPaciente_Click_1);
             // 
             // Menu
             // 
