@@ -38,6 +38,7 @@
             idAtendimento = new DataGridViewTextBoxColumn();
             ID = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
+            statusPaciente = new DataGridViewTextBoxColumn();
             btnEditarPaciente = new Button();
             btnRemoverPaciente = new Button();
             btnVoltar = new Button();
@@ -49,10 +50,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.logo;
-            pictureBox1.Location = new Point(157, 16);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(137, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(150, 103);
+            pictureBox1.Size = new Size(131, 77);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -62,9 +62,8 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1648, 119);
+            panel1.Size = new Size(1442, 89);
             panel1.TabIndex = 11;
             // 
             // label1
@@ -74,9 +73,9 @@
             label1.BackColor = SystemColors.ControlLightLight;
             label1.Font = new Font("Calibri", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(1, 140, 241);
-            label1.Location = new Point(674, 221);
+            label1.Location = new Point(590, 166);
             label1.Name = "label1";
-            label1.Size = new Size(347, 54);
+            label1.Size = new Size(278, 42);
             label1.TabIndex = 12;
             label1.Text = "Lista de Pacientes";
             // 
@@ -100,7 +99,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             visualizaPaciente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             visualizaPaciente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            visualizaPaciente.Columns.AddRange(new DataGridViewColumn[] { idAtendimento, ID, status });
+            visualizaPaciente.Columns.AddRange(new DataGridViewColumn[] { idAtendimento, ID, status, statusPaciente });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.ControlLightLight;
             dataGridViewCellStyle2.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -110,7 +109,8 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             visualizaPaciente.DefaultCellStyle = dataGridViewCellStyle2;
             visualizaPaciente.GridColor = Color.FromArgb(1, 140, 241);
-            visualizaPaciente.Location = new Point(239, 361);
+            visualizaPaciente.Location = new Point(209, 271);
+            visualizaPaciente.Margin = new Padding(3, 2, 3, 2);
             visualizaPaciente.MultiSelect = false;
             visualizaPaciente.Name = "visualizaPaciente";
             visualizaPaciente.ReadOnly = true;
@@ -127,7 +127,7 @@
             visualizaPaciente.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             visualizaPaciente.RowTemplate.Height = 29;
             visualizaPaciente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            visualizaPaciente.Size = new Size(1170, 332);
+            visualizaPaciente.Size = new Size(1024, 249);
             visualizaPaciente.TabIndex = 13;
             visualizaPaciente.TabStop = false;
             // 
@@ -156,6 +156,12 @@
             status.Name = "status";
             status.ReadOnly = true;
             // 
+            // statusPaciente
+            // 
+            statusPaciente.HeaderText = "Status";
+            statusPaciente.Name = "statusPaciente";
+            statusPaciente.ReadOnly = true;
+            // 
             // btnEditarPaciente
             // 
             btnEditarPaciente.Anchor = AnchorStyles.None;
@@ -163,10 +169,9 @@
             btnEditarPaciente.FlatStyle = FlatStyle.Flat;
             btnEditarPaciente.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnEditarPaciente.ForeColor = SystemColors.ControlLightLight;
-            btnEditarPaciente.Location = new Point(686, 811);
-            btnEditarPaciente.Margin = new Padding(3, 4, 3, 4);
+            btnEditarPaciente.Location = new Point(600, 608);
             btnEditarPaciente.Name = "btnEditarPaciente";
-            btnEditarPaciente.Size = new Size(278, 53);
+            btnEditarPaciente.Size = new Size(243, 40);
             btnEditarPaciente.TabIndex = 18;
             btnEditarPaciente.Text = "Editar Paciente";
             btnEditarPaciente.UseVisualStyleBackColor = false;
@@ -179,13 +184,13 @@
             btnRemoverPaciente.FlatStyle = FlatStyle.Flat;
             btnRemoverPaciente.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnRemoverPaciente.ForeColor = SystemColors.ControlLightLight;
-            btnRemoverPaciente.Location = new Point(686, 713);
-            btnRemoverPaciente.Margin = new Padding(3, 4, 3, 4);
+            btnRemoverPaciente.Location = new Point(600, 535);
             btnRemoverPaciente.Name = "btnRemoverPaciente";
-            btnRemoverPaciente.Size = new Size(278, 53);
+            btnRemoverPaciente.Size = new Size(243, 40);
             btnRemoverPaciente.TabIndex = 17;
             btnRemoverPaciente.Text = "Remover Paciente";
             btnRemoverPaciente.UseVisualStyleBackColor = false;
+            btnRemoverPaciente.Click += btnRemoverPaciente_Click;
             // 
             // btnVoltar
             // 
@@ -194,10 +199,9 @@
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnVoltar.ForeColor = SystemColors.ControlLightLight;
-            btnVoltar.Location = new Point(686, 908);
-            btnVoltar.Margin = new Padding(3, 4, 3, 4);
+            btnVoltar.Location = new Point(600, 681);
             btnVoltar.Name = "btnVoltar";
-            btnVoltar.Size = new Size(278, 53);
+            btnVoltar.Size = new Size(243, 40);
             btnVoltar.TabIndex = 16;
             btnVoltar.Text = "Voltar";
             btnVoltar.UseVisualStyleBackColor = false;
@@ -205,18 +209,19 @@
             // 
             // ListaPaciente
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1648, 1055);
+            ClientSize = new Size(1442, 791);
             Controls.Add(btnEditarPaciente);
             Controls.Add(btnRemoverPaciente);
             Controls.Add(visualizaPaciente);
             Controls.Add(btnVoltar);
             Controls.Add(label1);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "ListaPaciente";
             ShowIcon = false;
@@ -236,11 +241,13 @@
         private Panel panel1;
         private Label label1;
         private DataGridView visualizaPaciente;
-        private DataGridViewTextBoxColumn idAtendimento;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn status;
         private Button btnEditarPaciente;
         private Button btnRemoverPaciente;
         private Button btnVoltar;
+        private DataGridViewTextBoxColumn idAtendimento;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn status;
+        private DataGridViewTextBoxColumn Ativo;
+        private DataGridViewTextBoxColumn statusPaciente;
     }
 }

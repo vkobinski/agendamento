@@ -128,7 +128,7 @@ namespace AgendamentoCliente.Telas
             {
 
                 HttpClient http = new HttpClient();
-                HttpResponseMessage response = await http.GetAsync(Utils.GetIp("/api/v1/paciente"));
+                HttpResponseMessage response = await http.GetAsync(Utils.GetIp("/api/v1/paciente/ativo"));
 
                 string v = await response.Content.ReadAsStringAsync();
                 List<Paciente> pacientes = JsonConvert.DeserializeObject<List<Paciente>>(v);
