@@ -63,6 +63,16 @@ namespace AgendamentoCliente.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap agendarPrincipal {
+            get {
+                object obj = ResourceManager.GetObject("agendarPrincipal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap atencao {
             get {
                 object obj = ResourceManager.GetObject("atencao", resourceCulture);
@@ -86,6 +96,76 @@ namespace AgendamentoCliente.Properties {
         internal static System.Drawing.Bitmap btnPesquisar {
             get {
                 object obj = ResourceManager.GetObject("btnPesquisar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnPrincipal {
+            get {
+                object obj = ResourceManager.GetObject("btnPrincipal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cadastraMedicoPrincipal {
+            get {
+                object obj = ResourceManager.GetObject("cadastraMedicoPrincipal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cadastraPacientePrincipal {
+            get {
+                object obj = ResourceManager.GetObject("cadastraPacientePrincipal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap desmarcarPacientePrincipal {
+            get {
+                object obj = ResourceManager.GetObject("desmarcarPacientePrincipal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap listaPacientePrincipal {
+            get {
+                object obj = ResourceManager.GetObject("listaPacientePrincipal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap removerMedicoPrincipal {
+            get {
+                object obj = ResourceManager.GetObject("removerMedicoPrincipal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +246,16 @@ namespace AgendamentoCliente.Properties {
         internal static System.Drawing.Bitmap telaLogin3 {
             get {
                 object obj = ResourceManager.GetObject("telaLogin3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap telaLoginPrincipal {
+            get {
+                object obj = ResourceManager.GetObject("telaLoginPrincipal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

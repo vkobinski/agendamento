@@ -6,157 +6,239 @@ namespace AgendamentoCliente.Telas
 {
     public partial class Menu : Form
     {
-        public Menu()
+        private Form1 form1;
+        public Menu(Form1 form1)
         {
             InitializeComponent();
-        }
-
-        private void Menu_Activated(object sender, EventArgs e)
-        {
-            atualizaTabelaAgendamento();
-            Visible = true;
-        }
-
-        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
-            ap.Show();
-            Visible = false;
-        }
-
-        private void btnDesmarcar_Click(object sender, EventArgs e)
-        {
-            Telas.DesmarcaPaciente dp = new Telas.DesmarcaPaciente();
-            dp.Show();
-            Visible = false;
-        }
-
-        private void btnCadastrar_Click(object sender, EventArgs e)
-        {
-            Telas.CadastraMedico cm = new Telas.CadastraMedico();
-            cm.Show();
-            Visible = false;
-        }
-
-        private void btnRemover_Click(object sender, EventArgs e)
-        {
-            Telas.RemoveMedico rm = new Telas.RemoveMedico();
-            rm.Show();
-            Visible = false;
-        }
-
-        private void btnAgendar_Click(object sender, EventArgs e)
-        {
-            Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
-            ap.Show();
-            Visible = false;
+            MenuSingleton.createInstance(this);
+            this.form1 = form1;
         }
 
         private async void Menu_Load(object sender, EventArgs e)
         {
-            atualizaTabelaAgendamento();
+            textBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
+            textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            adicionaAutoCompleteMedico();
         }
 
-        private async void atualizaTabelaAgendamento()
+        public async Task atualizaTabelaAgendamento()
         {
-            for (int i = visualizaPaciente.Rows.Count - 2; i >= 0; i--)
+            int count = visualizaPaciente.Rows.Count;
+            for (int i = 0; i < count; i++)
             {
-                visualizaPaciente.Rows.RemoveAt(i);
+                visualizaPaciente.Rows.RemoveAt(0);
             }
             HttpClient httpClient = new HttpClient();
-            HttpResponseMessage httpResponseMessage = await httpClient.GetAsync("http://localhost:8080/api/v1/atendimento");
+            HttpResponseMessage httpResponseMessage = null;
 
-            string v = await httpResponseMessage.Content.ReadAsStringAsync();
+            try
+            {
+                httpResponseMessage = await httpClient.GetAsync(Utils.GetIp("/api/v1/atendimento/today-and-forth"));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Não foi possível conectar ao servidor!");
+                return;
+            }
 
-            List<Atendimento> atendimentoLista = JsonConvert.DeserializeObject<List<Atendimento>>(v);
-
-            atendimentoLista.ForEach(atendimento =>
+            try
             {
 
-                DataGridViewRow linha = new DataGridViewRow();
 
-                DataGridViewTextBoxCell nomeMedicoCelula = new DataGridViewTextBoxCell();
-                DataGridViewTextBoxCell nomePacienteCelula = new DataGridViewTextBoxCell();
-                DataGridViewTextBoxCell dataCelula = new DataGridViewTextBoxCell();
-                DataGridViewTextBoxCell idCelula = new DataGridViewTextBoxCell();
+                string v = await httpResponseMessage.Content.ReadAsStringAsync();
 
+                List<Atendimento> atendimentoLista = JsonConvert.DeserializeObject<List<Atendimento>>(v);
 
-
-                nomePacienteCelula.Value = atendimento.Paciente.NomeCompleto;
-                nomeMedicoCelula.Value = atendimento.Medico.NomeCompleto;
-                idCelula.Value = atendimento.AtendimentoId;
-
-                string inputString = atendimento.DataAtendimento;
-
-                string formattedDateTime;
-
-                try
+                atendimentoLista.ForEach(atendimento =>
                 {
-                    DateTime dateTime = DateTime.ParseExact(inputString, "yyyy-MM-dd'T'HH:mm:ss", CultureInfo.InvariantCulture);
-                    formattedDateTime = dateTime.ToString("dd/MM/yyyy HH:mm");
-                }
-                catch (Exception e)
+
+                    DataGridViewRow linha = new DataGridViewRow();
+
+                    DataGridViewTextBoxCell nomeMedicoCelula = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell nomePacienteCelula = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell dataCelula = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell idCelula = new DataGridViewTextBoxCell();
+
+
+
+                    nomePacienteCelula.Value = atendimento.Paciente.NomeCompleto;
+                    nomeMedicoCelula.Value = atendimento.Medico.NomeCompleto;
+                    idCelula.Value = atendimento.AtendimentoId;
+
+                    string inputString = atendimento.DataAtendimento;
+
+                    string formattedDateTime;
+
+                    try
+                    {
+                        DateTime dateTime = DateTime.ParseExact(inputString, "yyyy-MM-dd'T'HH:mm:ss", CultureInfo.InvariantCulture);
+                        formattedDateTime = dateTime.ToString("dd/MM/yyyy HH:mm");
+                    }
+                    catch (Exception e)
+                    {
+                        DateTime dateTime = DateTime.Parse(inputString, CultureInfo.CurrentCulture);
+                        DateTime newDateTime = new DateTime(dateTime.Ticks);
+                        formattedDateTime = newDateTime.ToString("dd/MM/yyyy HH:mm");
+                    }
+
+                    dataCelula.Value = formattedDateTime;
+
+                    linha.Cells.AddRange(idCelula, nomePacienteCelula, nomeMedicoCelula, dataCelula);
+
+
+                    visualizaPaciente.Rows.Add(linha);
+
+                });
+
+
+            }
+            catch (Exception e)
+            {
+
+            };
+        }
+
+        public async void atualizaTabelaAgendamentoForMedico(String nomeMedico)
+        {
+
+            try
+            {
+                int count = visualizaPaciente.Rows.Count;
+                for (int i = 0; i < count; i++)
                 {
-                    DateTime dateTime = DateTime.Parse(inputString, CultureInfo.CurrentCulture);
-                    DateTime newDateTime = new DateTime(dateTime.Ticks);
-                    formattedDateTime = newDateTime.ToString("dd/MM/yyyy HH:mm");
+                    visualizaPaciente.Rows.RemoveAt(0);
                 }
+                HttpResponseMessage httpResponseMessage = null;
 
-                dataCelula.Value = formattedDateTime;
+                HttpClient httpClient = new HttpClient();
 
-                linha.Cells.AddRange(idCelula, nomeMedicoCelula, nomePacienteCelula, dataCelula);
-
-
-                visualizaPaciente.Rows.Add(linha);
-
-            });
-        }
-
-        private void visualizaPaciente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+                Dictionary<string, string> formData = new Dictionary<string, string>
         {
+            { "nome",  nomeMedico},
+        };
+                var content = new FormUrlEncodedContent(formData);
+
+
+                httpResponseMessage = await httpClient.PostAsync(Utils.GetIp("/api/v1/atendimento/search"), content);
+                string v = await httpResponseMessage.Content.ReadAsStringAsync();
+
+                List<Atendimento> atendimentoLista = JsonConvert.DeserializeObject<List<Atendimento>>(v);
+
+                int quantity = atendimentoLista.RemoveAll((atendimento) =>
+                {
+                    DateTime hoje = DateTime.Now;
+                    DateTime diaAtendimento = DateTime.Parse(atendimento.DataAtendimento.Split(" ")[0]);
+
+                    if (diaAtendimento >= hoje) return false;
+                    return true;
+                });
+
+                atendimentoLista.ForEach(atendimento =>
+                {
+
+                    DataGridViewRow linha = new DataGridViewRow();
+
+                    DataGridViewTextBoxCell nomeMedicoCelula = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell nomePacienteCelula = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell dataCelula = new DataGridViewTextBoxCell();
+                    DataGridViewTextBoxCell idCelula = new DataGridViewTextBoxCell();
+
+
+
+                    nomePacienteCelula.Value = atendimento.Paciente.NomeCompleto;
+                    nomeMedicoCelula.Value = atendimento.Medico.NomeCompleto;
+                    idCelula.Value = atendimento.AtendimentoId;
+
+                    string inputString = atendimento.DataAtendimento;
+
+                    string formattedDateTime;
+
+                    try
+                    {
+                        DateTime dateTime = DateTime.ParseExact(inputString, "yyyy-MM-dd'T'HH:mm:ss", CultureInfo.InvariantCulture);
+                        formattedDateTime = dateTime.ToString("dd/MM/yyyy HH:mm");
+                    }
+                    catch (Exception e)
+                    {
+                        DateTime dateTime = DateTime.Parse(inputString, CultureInfo.CurrentCulture);
+                        DateTime newDateTime = new DateTime(dateTime.Ticks);
+                        formattedDateTime = newDateTime.ToString("dd/MM/yyyy HH:mm");
+                    }
+
+                    dataCelula.Value = formattedDateTime;
+
+                    linha.Cells.AddRange(idCelula, nomePacienteCelula, nomeMedicoCelula, dataCelula);
+
+
+                    visualizaPaciente.Rows.Add(linha);
+
+                });
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível encontrar médico na base de dados!");
+                return;
+            }
 
         }
 
-        private void btnAtualizar_Click(object sender, EventArgs e)
-        {
-            atualizaTabelaAgendamento();
-        }
-
-        private void btnCadastrarPaciente_Click(object sender, EventArgs e)
-        {
-            Telas.CadastraPaciente cp = new Telas.CadastraPaciente();
-            cp.Show();
-            Visible = false;
-
-        }
 
         private void btnAgendar_Click_1(object sender, EventArgs e)
         {
- Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
+            Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
             ap.Show();
-            Visible = false;
+            this.Visible = false;
 
         }
-
-        private void Menu_Load_1(object sender, EventArgs e)
+        public class Response
         {
-            atualizaTabelaAgendamento();
-            Visible = true;
-
+            public List<Medico> Medicos { get; set; }
+            public List<Paciente> Pacientes { get; set; }
         }
 
-        private void btnAtualizar_Click_1(object sender, EventArgs e)
+        private async void adicionaAutoCompleteMedico()
         {
-            atualizaTabelaAgendamento();
+            try
+            {
+
+                HttpClient http = new HttpClient();
+                HttpResponseMessage response = await http.GetAsync(Utils.GetIp("/api/v1/search"));
+
+                string v = await response.Content.ReadAsStringAsync();
+
+                Response resposta = JsonConvert.DeserializeObject<Response>(v);
+
+                List<string> nomes = new List<string>();
+
+                resposta.Medicos.ForEach(medico =>
+                {
+                    if (medico.Ativo) nomes.Add(medico.NomeCompleto.ToString());
+                });
+
+                resposta.Pacientes.ForEach(paciente =>
+                {
+                    nomes.Add(paciente.NomeCompleto.ToString());
+                });
+
+                textBox1.AutoCompleteCustomSource.AddRange(nomes.ToArray());
+            }
+            catch (Exception ex)
+            {
+                //TODO: implementar caso não haja médicos no servidor
+            }
 
         }
 
-        private async void desmarcar(String idAtendimento)
+
+        private async void btnAtualizar_Click_1(object sender, EventArgs e)
+        {
+            await atualizaTabelaAgendamento();
+        }
+
+        private async Task desmarcar(String idAtendimento)
         {
 
             HttpClient httpClient = new HttpClient();
@@ -168,7 +250,7 @@ namespace AgendamentoCliente.Telas
             var content = new FormUrlEncodedContent(formData);
             try
             {
-                HttpResponseMessage response = await httpClient.PutAsync("http://localhost:8080/api/v1/atendimento/desmarcar", content);
+                HttpResponseMessage response = await httpClient.PutAsync(Utils.GetIp("/api/v1/atendimento/desmarcar"), content);
 
                 // Check response status
                 if (response.IsSuccessStatusCode)
@@ -186,46 +268,73 @@ namespace AgendamentoCliente.Telas
             }
 
         }
-
-
-        private void btnDesmarcar_Click_1(object sender, EventArgs e)
+        private async void btnDesmarcar_Click_1(object sender, EventArgs e)
         {
             if (visualizaPaciente.SelectedRows.Count < 1 || visualizaPaciente.SelectedRows[0].Cells.Count < 1) return;
 
             DataGridViewCell selectedCell = visualizaPaciente.SelectedRows[0].Cells[0];
-
             if (!(selectedCell is DataGridViewTextBoxCell) || selectedCell.Value == null) return;
-
             String idAtendimento = selectedCell.Value.ToString();
+            await desmarcar(idAtendimento);
+            await atualizaTabelaAgendamento();
 
-            desmarcar(idAtendimento);
-
-            atualizaTabelaAgendamento();
+            //new Telas.DesmarcaPaciente().Show();
+            //MenuSingleton.Instance.MenuVisible();
+            //this.Visible = false;
         }
 
         private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
- Telas.AgendamentoPaciente ap = new Telas.AgendamentoPaciente();
-            ap.Show();
-            Visible = false;
-
-
-        }
-
-        private void btnRemover_Click_1(object sender, EventArgs e)
-        {
- Telas.RemoveMedico rm = new Telas.RemoveMedico();
-            rm.Show();
-            Visible = false;
+            Telas.CadastraMedico cm = new Telas.CadastraMedico();
+            cm.Show();
+            this.Visible = false;
 
         }
 
         private void btnCadastrarPaciente_Click_1(object sender, EventArgs e)
         {
- Telas.CadastraPaciente cp = new Telas.CadastraPaciente();
+            Telas.CadastraPaciente cp = new Telas.CadastraPaciente();
             cp.Show();
-            Visible = false;
+            this.Visible = false;
+        }
 
+        private void btnListaMedico_Click(object sender, EventArgs e)
+        {
+            new ListaMedico().Show();
+            this.Visible = false;
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.form1.Visible = true;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string nomeMedico = textBox1.Text;
+            if (nomeMedico.Count() <= 0)
+            {
+                atualizaTabelaAgendamento();
+                return;
+            }
+            atualizaTabelaAgendamentoForMedico(nomeMedico);
+        }
+
+        private async void Menu_Activated(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            await atualizaTabelaAgendamento();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnListaPaciente_Click(object sender, EventArgs e)
+        {
+            new ListaPaciente().Show();
+            this.Visible = false;
         }
     }
 

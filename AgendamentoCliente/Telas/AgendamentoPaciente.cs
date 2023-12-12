@@ -1,6 +1,5 @@
 ﻿using AgendamentoCliente.Models;
 using Newtonsoft.Json;
-using System.Diagnostics;
 
 namespace AgendamentoCliente.Telas
 {
@@ -8,6 +7,8 @@ namespace AgendamentoCliente.Telas
 
 
     {
+        private ListBox customListBoxPaciente;
+        private ListBox customListBoxMedico;
 
         public AgendamentoPaciente()
         {
@@ -18,6 +19,8 @@ namespace AgendamentoCliente.Telas
 
 
             autocompletes();
+
+            //if (fd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
         }
 
         public void autocompletes()
@@ -31,74 +34,155 @@ namespace AgendamentoCliente.Telas
 
             txbNomeMedico.AutoCompleteMode = AutoCompleteMode.Suggest;
             txbNomeMedico.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            listBoxPaciente();
+            listBoxMedico();
         }
 
-        private async void adicionaAutoCompletePaciente()
+        private void listBoxPaciente()
         {
-            HttpClient http = new HttpClient();
-            HttpResponseMessage response = await http.GetAsync("http://localhost:8080/api/v1/paciente");
+            // Configuração do ListBox Paciente
+            customListBoxPaciente = new ListBox();
+            customListBoxPaciente.Font = new Font("Calibri", 16); // Altere a fonte e o tamanho conforme desejado
+            customListBoxPaciente.Visible = false;
+            customListBoxPaciente.Width = txbNomePaciente.Width;
+            this.Controls.Add(customListBoxPaciente);
 
-            string v = await response.Content.ReadAsStringAsync();
-            List<Paciente> pacientes = JsonConvert.DeserializeObject<List<Paciente>>(v);
+            customListBoxPaciente.Click += CustomListBoxPaciente_Click;
+            customListBoxPaciente.LostFocus += CustomListBoxPaciente_LostFocus;
+        }
 
-            List<string> nomes = new List<string>();
+        private void listBoxMedico()
+        {
+            // Configuração do ListBox Medico
+            customListBoxMedico = new ListBox();
+            customListBoxMedico.Font = new Font("Calibri", 16); // Altere a fonte e o tamanho conforme desejado
+            customListBoxMedico.Visible = false;
+            customListBoxMedico.Width = txbNomePaciente.Width;
+            this.Controls.Add(customListBoxMedico);
 
-            pacientes.ForEach(paciente =>
+            customListBoxMedico.Click += CustomListBoxMedico_Click;
+            customListBoxMedico.LostFocus += CustomListBoxMedico_LostFocus;
+        }
+
+        private void CustomListBoxPaciente_LostFocus(object sender, EventArgs e)
+        {
+            customListBoxPaciente.Visible = false;
+        }
+
+        private void CustomListBoxPaciente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Down)
             {
-                nomes.Add(paciente.NomeCompleto.ToString());
-            });
-
-            txbNomePaciente.AutoCompleteCustomSource.AddRange(nomes.ToArray());
+                customListBoxPaciente.SelectedIndex += 1;
+            }
         }
 
-        private async void adicionaAutoCompleteMedico()
+
+        private void CustomListBoxPaciente_Click(object sender, EventArgs e)
         {
-            HttpClient http = new HttpClient();
-            HttpResponseMessage response = await http.GetAsync("http://localhost:8080/api/v1/medico");
-
-            string v = await response.Content.ReadAsStringAsync();
-            List<Medico> medicos = JsonConvert.DeserializeObject<List<Medico>>(v);
-
-            List<string> nomes = new List<string>();
-
-            medicos.ForEach(medico =>
+            if (customListBoxPaciente.SelectedItem != null)
             {
-                nomes.Add(medico.NomeCompleto.ToString());
-            });
+                string input = customListBoxPaciente.SelectedItem.ToString();
+                try
+                {
+                    string[] splitInput = input.Split(new string[] { "          " }, StringSplitOptions.None);
+                    string name = splitInput[0];
+                    string dateString = splitInput[1];
 
-            txbNomeMedico.AutoCompleteCustomSource.AddRange(nomes.ToArray());
+                    txbNomePaciente.Text = name;
+                    txbNascimento.Text = dateString;
+                    customListBoxPaciente.Visible = false;
+                }
+                catch
+                {
+                    return;
+                }
+                this.BeginInvoke(new MethodInvoker(() => { txbNomeMedico.Focus(); }));
+
+            }
         }
 
-        private void btnCancelar_Click_1(object sender, EventArgs e)
+        private void CustomListBoxMedico_LostFocus(object sender, EventArgs e)
         {
+            customListBoxMedico.Visible = false;
+        }
+
+        private void CustomListBoxMedico_Click(object sender, EventArgs e)
+        {
+            if (customListBoxMedico.SelectedItem != null)
+            {
+                string input = customListBoxMedico.SelectedItem.ToString();
+
+                txbNomeMedico.Text = input;
+
+                this.BeginInvoke(new MethodInvoker(() => { dateTimePicker1.Focus(); }));
+                dateTimePicker1.Focus();
+            }
+        }
+
+
+        private async Task<string[]> adicionaAutoCompletePaciente()
+        {
+            try
+            {
+
+                HttpClient http = new HttpClient();
+                HttpResponseMessage response = await http.GetAsync(Utils.GetIp("/api/v1/paciente"));
+
+                string v = await response.Content.ReadAsStringAsync();
+                List<Paciente> pacientes = JsonConvert.DeserializeObject<List<Paciente>>(v);
+
+                List<string> nomes = new List<string>();
+
+                pacientes.ForEach(paciente =>
+                {
+                    if (paciente.ativo) nomes.Add(paciente.NomeCompleto.ToString() + "          " + paciente.DataNascimento.ToString());
+                });
+
+                return nomes.ToArray();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível agendar, verifique se há algum campo vazio");
+            }
+            return null;
+        }
+
+        private async Task<string[]> adicionaAutoCompleteMedico()
+        {
+            try
+            {
+
+                HttpClient http = new HttpClient();
+                HttpResponseMessage response = await http.GetAsync(Utils.GetIp("/api/v1/medico"));
+
+                string v = await response.Content.ReadAsStringAsync();
+                List<Medico> medicos = JsonConvert.DeserializeObject<List<Medico>>(v);
+
+                List<string> nomes = new List<string>();
+
+                medicos.ForEach(medico =>
+                {
+                    if (medico.Ativo) nomes.Add(medico.NomeCompleto.ToString());
+                });
+
+                return nomes.ToArray();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível encontrar registros de médicos no servidor");
+            }
+            return null;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            MenuSingleton.Instance.Menu.Visible = true;
             Close();
-            Telas.Menu m = new Telas.Menu();
-            m.Show();
         }
 
-        private void btnAgendar_Click(object sender, EventArgs e)
-        {
-            //Agendamento Utilizando o Banco de Dados
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbNomePaciente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbNomeMedico_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AgendamentoPaciente_Load(object sender, EventArgs e)
-        {
-        }
 
         private void AgendamentoPaciente_Load_1(object sender, EventArgs e)
         {
@@ -106,87 +190,163 @@ namespace AgendamentoCliente.Telas
 
         }
 
-        private async void btnAgendar_Click_1(object sender, EventArgs e)
+        private async void btnAgendar_Click(object sender, EventArgs e)
         {
-
             string nomePaciente = txbNomePaciente.Text;
+
+            string dataNascimento = txbNascimento.Text;
+
             string nomeMedico = txbNomeMedico.Text;
             string data = dateTimePicker1.Text;
 
-            Debug.WriteLine(nomePaciente);
+            try
+            {
 
-            HttpClient http = new HttpClient();
+                if (nomePaciente.Count() == 0)
+                {
+                    throw new Exception();
+                }
+
+                HttpClient http = new HttpClient();
 
 
-            Dictionary<string, string> formData = new Dictionary<string, string>
+                Dictionary<string, string> formData = new Dictionary<string, string>
         {
                 {"nomePaciente", nomePaciente },
+                {"dataNascimento", dataNascimento },
                 {"nomeMedico", nomeMedico },
                 {"dataHora", data }
         };
-            var content = new FormUrlEncodedContent(formData);
-            try
-            {
-                HttpResponseMessage response = await http.PostAsync("http://localhost:8080/api/v1/atendimento", content);
+                var content = new FormUrlEncodedContent(formData);
+
+
+                HttpResponseMessage response = await http.PostAsync(Utils.GetIp("/api/v1/atendimento"), content);
                 string stringResponse = await response.Content.ReadAsStringAsync();
 
                 Atendimento atendimento = JsonConvert.DeserializeObject<Atendimento>(stringResponse);
 
-                Debug.WriteLine(atendimento.ToString());
+                if (response.IsSuccessStatusCode)
+                {
+                    MenuSingleton.Instance.MenuVisible();
+                    Close();
+                }
+                else
+                {
+                    throw new Exception();
+                }
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                MessageBox.Show("Não foi possível agendar, verifique se há algum campo vazio");
             }
-            Close();
-            Telas.Menu m = new Telas.Menu();
-            m.Show();
         }
 
-        private void txbNomePaciente_TextChanged_1(object sender, EventArgs e)
+        private void AgendamentoPaciente_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            MenuSingleton.Instance.MenuVisible();
         }
 
-        private void AgendamentoPaciente_Load_2(object sender, EventArgs e)
+        private void dateTimePicker1_KeyPress(object sender, KeyPressEventArgs e)
         {
-        }
-
-        private async void btnAgendar_Click_2(object sender, EventArgs e)
-        {
- string nomePaciente = txbNomePaciente.Text;
-            string nomeMedico = txbNomeMedico.Text;
-            string data = dateTimePicker1.Text;
-
-            Debug.WriteLine(nomePaciente);
-
-            HttpClient http = new HttpClient();
-
-
-            Dictionary<string, string> formData = new Dictionary<string, string>
-        {
-                {"nomePaciente", nomePaciente },
-                {"nomeMedico", nomeMedico },
-                {"dataHora", data }
-        };
-            var content = new FormUrlEncodedContent(formData);
-            try
+            DateTimePicker dtp = (DateTimePicker)sender;
+            if (e.KeyChar == (char)Keys.Space)
             {
-                HttpResponseMessage response = await http.PostAsync("http://localhost:8080/api/v1/atendimento", content);
-                string stringResponse = await response.Content.ReadAsStringAsync();
-
-                Atendimento atendimento = JsonConvert.DeserializeObject<Atendimento>(stringResponse);
-
-                Debug.WriteLine(atendimento.ToString());
+                SendKeys.Send("{RIGHT}");
+                e.Handled = true;
             }
-            catch (Exception ex)
+
+        }
+
+        private async void txbNomePaciente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+
+            string[] suggestions = await adicionaAutoCompletePaciente();
+            string filter = txbNomePaciente.Text.ToLower();
+            string[] filteredSuggestions = Array.FindAll(suggestions, s => s.ToLower().Contains(filter));
+
+            customListBoxPaciente.Items.Clear();
+            customListBoxPaciente.Items.AddRange(filteredSuggestions);
+            customListBoxPaciente.BringToFront();
+
+            customListBoxPaciente.Visible = filteredSuggestions.Length > 0;
+            customListBoxPaciente.Top = txbNomePaciente.Bottom;
+            customListBoxPaciente.Left = txbNomePaciente.Left;
+
+
+        }
+
+        private async void txbNomeMedico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string[] suggestions = await adicionaAutoCompleteMedico();
+            string filter = txbNomeMedico.Text.ToLower();
+            string[] filteredSuggestions = Array.FindAll(suggestions, s => s.ToLower().Contains(filter));
+
+            customListBoxMedico.Items.Clear();
+            customListBoxMedico.Items.AddRange(filteredSuggestions);
+            customListBoxMedico.BringToFront();
+
+            customListBoxMedico.Visible = filteredSuggestions.Length > 0;
+            customListBoxMedico.Top = txbNomeMedico.Bottom;
+            customListBoxMedico.Left = txbNomeMedico.Left;
+
+        }
+
+        private void txbNomePaciente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                customListBoxPaciente.SelectedIndex += 1;
+                return;
             }
-            Close();
-            Telas.Menu m = new Telas.Menu();
-            m.Show();
 
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (customListBoxPaciente.SelectedItem != null)
+                {
+                    string input = customListBoxPaciente.SelectedItem.ToString();
+                    try
+                    {
+                        string[] splitInput = input.Split(new string[] { "          " }, StringSplitOptions.None);
+                        string name = splitInput[0];
+                        string dateString = splitInput[1];
+
+                        txbNomePaciente.Text = name;
+                        txbNascimento.Text = dateString;
+                        customListBoxPaciente.Visible = false;
+                    }
+                    catch
+                    {
+                        return;
+                    }
+                    this.BeginInvoke(new MethodInvoker(() => { txbNomeMedico.Focus(); }));
+
+
+                }
+
+            }
+        }
+
+        private void txbNomeMedico_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                customListBoxMedico.SelectedIndex += 1;
+                return;
+            }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (customListBoxMedico.SelectedItem != null)
+                {
+                    string input = customListBoxMedico.SelectedItem.ToString();
+                    txbNomeMedico.Text = input;
+                    customListBoxMedico.Visible = false;
+                    this.BeginInvoke(new MethodInvoker(() => { dateTimePicker1.Focus(); }));
+                    dateTimePicker1.Focus();
+                }
+            }
         }
     }
 }

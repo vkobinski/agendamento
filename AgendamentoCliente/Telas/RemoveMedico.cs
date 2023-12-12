@@ -22,7 +22,7 @@ namespace AgendamentoCliente.Telas
         private async void adicionaAutoCompleteMedico()
         {
             HttpClient http = new HttpClient();
-            HttpResponseMessage response = await http.GetAsync("http://localhost:8080/api/v1/medico");
+            HttpResponseMessage response = await http.GetAsync(Utils.GetIp("/api/v1/medico"));
 
             string v = await response.Content.ReadAsStringAsync();
             List<Medico> medicos = JsonConvert.DeserializeObject<List<Medico>>(v);
@@ -39,9 +39,8 @@ namespace AgendamentoCliente.Telas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            MenuSingleton.Instance.MenuVisible();
             Close();
-            Telas.Menu m = new Telas.Menu();
-            m.Show();
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
@@ -72,7 +71,7 @@ namespace AgendamentoCliente.Telas
             var content = new FormUrlEncodedContent(formData);
             try
             {
-                HttpResponseMessage response = await httpClient.PostAsync("http://localhost:8080/api/v1/medico/procura", content);
+                HttpResponseMessage response = await httpClient.PostAsync(Utils.GetIp("/api/v1/medico/procura"), content);
                 string stringResponse = await response.Content.ReadAsStringAsync();
 
                 Medico medico = JsonConvert.DeserializeObject<Medico>(stringResponse);
@@ -98,7 +97,7 @@ namespace AgendamentoCliente.Telas
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                MessageBox.Show("Não foi possível deletar o médico");
             }
 
 
@@ -109,7 +108,7 @@ namespace AgendamentoCliente.Telas
             DataGridViewRow v = visualizaMedico.Rows[0];
             long idMedico = (long)v.Cells[1].Value;
             HttpClient httpClient = new HttpClient();
-            HttpResponseMessage httpResponseMessage = await httpClient.DeleteAsync("http://localhost:8080/api/v1/medico/" + idMedico);
+            HttpResponseMessage httpResponseMessage = await httpClient.DeleteAsync(Utils.GetIp("/api/v1/medico/" + idMedico));
 
             if (httpResponseMessage.StatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -118,15 +117,9 @@ namespace AgendamentoCliente.Telas
 
         }
 
-        private void lbl1_Click(object sender, EventArgs e)
+        private void RemoveMedico_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            MenuSingleton.Instance.MenuVisible();
         }
-
-        private void RemoveMedico_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

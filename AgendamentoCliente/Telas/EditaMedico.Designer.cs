@@ -1,6 +1,6 @@
 ﻿namespace AgendamentoCliente.Telas
 {
-    partial class CadastraPaciente
+    partial class EditaMedico
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txbNomePaciente = new TextBox();
-            dataNascimento = new DateTimePicker();
-            btnConfirmar = new Button();
+            txbNomeMedico = new TextBox();
+            btnFoto = new Button();
+            btnCadastrar = new Button();
             btnCancelar = new Button();
+            fileSystemWatcher1 = new FileSystemWatcher();
+            fotoMedico = new PictureBox();
+            txbEmail = new TextBox();
+            txbSenha = new TextBox();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label1 = new Label();
@@ -43,6 +47,7 @@
             panel15 = new Panel();
             panel16 = new Panel();
             panel17 = new Panel();
+            label2 = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
@@ -52,7 +57,17 @@
             panel8 = new Panel();
             panel9 = new Panel();
             label3 = new Label();
-            label2 = new Label();
+            panel18 = new Panel();
+            panel19 = new Panel();
+            panel20 = new Panel();
+            panel21 = new Panel();
+            panel22 = new Panel();
+            panel23 = new Panel();
+            panel24 = new Panel();
+            panel25 = new Panel();
+            label4 = new Label();
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fotoMedico).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel10.SuspendLayout();
@@ -63,47 +78,55 @@
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel7.SuspendLayout();
+            panel18.SuspendLayout();
+            panel19.SuspendLayout();
+            panel20.SuspendLayout();
+            panel23.SuspendLayout();
             SuspendLayout();
             // 
-            // txbNomePaciente
+            // txbNomeMedico
             // 
-            txbNomePaciente.Anchor = AnchorStyles.None;
-            txbNomePaciente.BorderStyle = BorderStyle.None;
-            txbNomePaciente.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txbNomePaciente.Location = new Point(530, 415);
-            txbNomePaciente.Margin = new Padding(3, 4, 3, 4);
-            txbNomePaciente.Name = "txbNomePaciente";
-            txbNomePaciente.Size = new Size(591, 33);
-            txbNomePaciente.TabIndex = 0;
+            txbNomeMedico.Anchor = AnchorStyles.None;
+            txbNomeMedico.BorderStyle = BorderStyle.None;
+            txbNomeMedico.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txbNomeMedico.Location = new Point(477, 219);
+            txbNomeMedico.Margin = new Padding(3, 4, 3, 4);
+            txbNomeMedico.Name = "txbNomeMedico";
+            txbNomeMedico.Size = new Size(587, 33);
+            txbNomeMedico.TabIndex = 0;
             // 
-            // dataNascimento
+            // btnFoto
             // 
-            dataNascimento.Anchor = AnchorStyles.None;
-            dataNascimento.CalendarFont = new Font("Calibri", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            dataNascimento.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataNascimento.Format = DateTimePickerFormat.Short;
-            dataNascimento.Location = new Point(530, 539);
-            dataNascimento.Margin = new Padding(3, 4, 3, 4);
-            dataNascimento.Name = "dataNascimento";
-            dataNascimento.Size = new Size(588, 40);
-            dataNascimento.TabIndex = 1;
-            dataNascimento.KeyPress += dataNascimento_KeyPress;
+            btnFoto.Anchor = AnchorStyles.None;
+            btnFoto.BackColor = SystemColors.ControlLightLight;
+            btnFoto.FlatStyle = FlatStyle.Flat;
+            btnFoto.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnFoto.ForeColor = SystemColors.ControlLightLight;
+            btnFoto.Image = Properties.Resources.btnPrincipal;
+            btnFoto.Location = new Point(699, 735);
+            btnFoto.Margin = new Padding(3, 5, 3, 5);
+            btnFoto.Name = "btnFoto";
+            btnFoto.Size = new Size(151, 43);
+            btnFoto.TabIndex = 4;
+            btnFoto.Text = "Editar Foto";
+            btnFoto.UseVisualStyleBackColor = false;
+            btnFoto.Click += btnFoto_Click;
             // 
-            // btnConfirmar
+            // btnCadastrar
             // 
-            btnConfirmar.Anchor = AnchorStyles.None;
-            btnConfirmar.BackColor = Color.FromArgb(1, 140, 241);
-            btnConfirmar.FlatStyle = FlatStyle.Flat;
-            btnConfirmar.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnConfirmar.ForeColor = SystemColors.ControlLightLight;
-            btnConfirmar.Location = new Point(530, 761);
-            btnConfirmar.Margin = new Padding(3, 4, 3, 4);
-            btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(229, 55);
-            btnConfirmar.TabIndex = 2;
-            btnConfirmar.Text = "Confirmar";
-            btnConfirmar.UseVisualStyleBackColor = false;
-            btnConfirmar.Click += btnConfirmar_Click_1;
+            btnCadastrar.Anchor = AnchorStyles.None;
+            btnCadastrar.BackColor = Color.FromArgb(1, 140, 241);
+            btnCadastrar.FlatStyle = FlatStyle.Flat;
+            btnCadastrar.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCadastrar.ForeColor = SystemColors.ControlLightLight;
+            btnCadastrar.Location = new Point(477, 814);
+            btnCadastrar.Margin = new Padding(3, 5, 3, 5);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new Size(229, 48);
+            btnCadastrar.TabIndex = 5;
+            btnCadastrar.Text = "Alterar";
+            btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnCancelar
             // 
@@ -112,14 +135,57 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnCancelar.ForeColor = SystemColors.ControlLightLight;
-            btnCancelar.Location = new Point(893, 761);
+            btnCancelar.Location = new Point(835, 814);
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(229, 55);
-            btnCancelar.TabIndex = 3;
+            btnCancelar.Size = new Size(235, 48);
+            btnCancelar.TabIndex = 6;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
+            // 
+            // fileSystemWatcher1
+            // 
+            fileSystemWatcher1.EnableRaisingEvents = true;
+            fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // fotoMedico
+            // 
+            fotoMedico.Anchor = AnchorStyles.None;
+            fotoMedico.BackColor = SystemColors.ControlLightLight;
+            fotoMedico.Location = new Point(680, 493);
+            fotoMedico.Name = "fotoMedico";
+            fotoMedico.Size = new Size(189, 220);
+            fotoMedico.SizeMode = PictureBoxSizeMode.Zoom;
+            fotoMedico.TabIndex = 10;
+            fotoMedico.TabStop = false;
+            fotoMedico.Paint += CadastraMedico_Paint;
+            fotoMedico.MouseDown += fotoMedico_MouseDown;
+            fotoMedico.MouseMove += fotoMedico_MouseMove;
+            fotoMedico.MouseUp += fotoMedico_MouseUp;
+            // 
+            // txbEmail
+            // 
+            txbEmail.Anchor = AnchorStyles.None;
+            txbEmail.BorderStyle = BorderStyle.None;
+            txbEmail.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txbEmail.Location = new Point(477, 325);
+            txbEmail.Margin = new Padding(3, 4, 3, 4);
+            txbEmail.Name = "txbEmail";
+            txbEmail.Size = new Size(587, 33);
+            txbEmail.TabIndex = 1;
+            // 
+            // txbSenha
+            // 
+            txbSenha.Anchor = AnchorStyles.None;
+            txbSenha.BorderStyle = BorderStyle.None;
+            txbSenha.Font = new Font("Calibri", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txbSenha.Location = new Point(477, 432);
+            txbSenha.Margin = new Padding(3, 4, 3, 4);
+            txbSenha.Name = "txbSenha";
+            txbSenha.PasswordChar = '*';
+            txbSenha.Size = new Size(587, 33);
+            txbSenha.TabIndex = 2;
             // 
             // panel1
             // 
@@ -129,8 +195,8 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1648, 119);
-            panel1.TabIndex = 15;
+            panel1.Size = new Size(1543, 119);
+            panel1.TabIndex = 16;
             // 
             // pictureBox1
             // 
@@ -149,11 +215,12 @@
             label1.BackColor = SystemColors.ControlLightLight;
             label1.Font = new Font("Calibri", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(1, 140, 241);
-            label1.Location = new Point(661, 280);
+            label1.Location = new Point(645, 123);
             label1.Name = "label1";
-            label1.Size = new Size(296, 54);
-            label1.TabIndex = 16;
-            label1.Text = "Editar Paciente";
+            label1.Size = new Size(278, 54);
+            label1.TabIndex = 17;
+            label1.Text = "Editar Médico";
+            label1.Click += label1_Click;
             // 
             // panel10
             // 
@@ -162,11 +229,11 @@
             panel10.Controls.Add(panel11);
             panel10.Controls.Add(panel15);
             panel10.Controls.Add(panel17);
-            panel10.Location = new Point(531, 449);
+            panel10.Location = new Point(478, 257);
             panel10.Margin = new Padding(3, 4, 3, 4);
             panel10.Name = "panel10";
             panel10.Size = new Size(589, 1);
-            panel10.TabIndex = 19;
+            panel10.TabIndex = 21;
             // 
             // panel11
             // 
@@ -235,6 +302,19 @@
             panel17.Size = new Size(360, 1);
             panel17.TabIndex = 15;
             // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.BackColor = SystemColors.ControlLightLight;
+            label2.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.FromArgb(1, 140, 241);
+            label2.Location = new Point(474, 271);
+            label2.Name = "label2";
+            label2.Size = new Size(90, 33);
+            label2.TabIndex = 20;
+            label2.Text = "Nome ";
+            // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.None;
@@ -242,11 +322,11 @@
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(panel7);
             panel2.Controls.Add(panel9);
-            panel2.Location = new Point(530, 583);
+            panel2.Location = new Point(475, 364);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
             panel2.Size = new Size(589, 1);
-            panel2.TabIndex = 21;
+            panel2.TabIndex = 23;
             // 
             // panel3
             // 
@@ -322,51 +402,139 @@
             label3.BackColor = SystemColors.ControlLightLight;
             label3.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(1, 140, 241);
-            label3.Location = new Point(527, 587);
+            label3.Location = new Point(472, 377);
             label3.Name = "label3";
-            label3.Size = new Size(241, 33);
-            label3.TabIndex = 20;
-            label3.Text = "Data de Nascimento";
+            label3.Size = new Size(84, 33);
+            label3.TabIndex = 22;
+            label3.Text = "E-mail";
             // 
-            // label2
+            // panel18
             // 
-            label2.Anchor = AnchorStyles.None;
-            label2.AutoSize = true;
-            label2.BackColor = SystemColors.ControlLightLight;
-            label2.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.FromArgb(1, 140, 241);
-            label2.Location = new Point(528, 453);
-            label2.Name = "label2";
-            label2.Size = new Size(90, 33);
-            label2.TabIndex = 18;
-            label2.Text = "Nome ";
+            panel18.Anchor = AnchorStyles.None;
+            panel18.BackColor = Color.FromArgb(1, 140, 241);
+            panel18.Controls.Add(panel19);
+            panel18.Controls.Add(panel23);
+            panel18.Controls.Add(panel25);
+            panel18.Location = new Point(475, 471);
+            panel18.Margin = new Padding(3, 4, 3, 4);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(589, 1);
+            panel18.TabIndex = 25;
             // 
-            // CadastraPaciente
+            // panel19
+            // 
+            panel19.BackColor = Color.FromArgb(1, 140, 241);
+            panel19.Controls.Add(panel20);
+            panel19.Controls.Add(panel22);
+            panel19.Location = new Point(0, 137);
+            panel19.Margin = new Padding(3, 4, 3, 4);
+            panel19.Name = "panel19";
+            panel19.Size = new Size(360, 1);
+            panel19.TabIndex = 17;
+            // 
+            // panel20
+            // 
+            panel20.BackColor = Color.FromArgb(1, 140, 241);
+            panel20.Controls.Add(panel21);
+            panel20.Location = new Point(0, 63);
+            panel20.Margin = new Padding(3, 4, 3, 4);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(360, 1);
+            panel20.TabIndex = 16;
+            // 
+            // panel21
+            // 
+            panel21.BackColor = Color.FromArgb(1, 140, 241);
+            panel21.Location = new Point(0, 0);
+            panel21.Margin = new Padding(3, 4, 3, 4);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(360, 1);
+            panel21.TabIndex = 15;
+            // 
+            // panel22
+            // 
+            panel22.BackColor = Color.FromArgb(1, 140, 241);
+            panel22.Location = new Point(0, 0);
+            panel22.Margin = new Padding(3, 4, 3, 4);
+            panel22.Name = "panel22";
+            panel22.Size = new Size(360, 1);
+            panel22.TabIndex = 15;
+            // 
+            // panel23
+            // 
+            panel23.BackColor = Color.FromArgb(1, 140, 241);
+            panel23.Controls.Add(panel24);
+            panel23.Location = new Point(0, 63);
+            panel23.Margin = new Padding(3, 4, 3, 4);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(360, 1);
+            panel23.TabIndex = 16;
+            // 
+            // panel24
+            // 
+            panel24.BackColor = Color.FromArgb(1, 140, 241);
+            panel24.Location = new Point(0, 0);
+            panel24.Margin = new Padding(3, 4, 3, 4);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(360, 1);
+            panel24.TabIndex = 15;
+            // 
+            // panel25
+            // 
+            panel25.BackColor = Color.FromArgb(1, 140, 241);
+            panel25.Location = new Point(0, 29);
+            panel25.Margin = new Padding(3, 4, 3, 4);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(360, 1);
+            panel25.TabIndex = 15;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.BackColor = SystemColors.ControlLightLight;
+            label4.Font = new Font("Calibri", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.FromArgb(1, 140, 241);
+            label4.Location = new Point(472, 484);
+            label4.Name = "label4";
+            label4.Size = new Size(83, 33);
+            label4.TabIndex = 24;
+            label4.Text = "Senha";
+            // 
+            // EditaMedico
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1648, 1055);
+            ClientSize = new Size(1543, 972);
+            Controls.Add(panel18);
+            Controls.Add(label4);
             Controls.Add(panel2);
             Controls.Add(label3);
             Controls.Add(panel10);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
+            Controls.Add(txbSenha);
+            Controls.Add(txbEmail);
+            Controls.Add(fotoMedico);
             Controls.Add(btnCancelar);
-            Controls.Add(btnConfirmar);
-            Controls.Add(dataNascimento);
-            Controls.Add(txbNomePaciente);
+            Controls.Add(btnCadastrar);
+            Controls.Add(btnFoto);
+            Controls.Add(txbNomeMedico);
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
-            Name = "CadastraPaciente";
+            Name = "EditaMedico";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastramento";
             WindowState = FormWindowState.Maximized;
-            FormClosing += CadastraPaciente_FormClosing;
+            FormClosing += CadastraMedico_FormClosing;
+            Load += EditaMedico_Load;
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fotoMedico).EndInit();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel10.ResumeLayout(false);
@@ -377,26 +545,35 @@
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel7.ResumeLayout(false);
+            panel18.ResumeLayout(false);
+            panel19.ResumeLayout(false);
+            panel20.ResumeLayout(false);
+            panel23.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private TextBox txbNomePaciente;
-        private DateTimePicker dataNascimento;
-        private Button btnConfirmar;
+        private TextBox txbNomeMedico;
+        private Button btnFoto;
+        private Button btnCadastrar;
         private Button btnCancelar;
+        private FileSystemWatcher fileSystemWatcher1;
+        private PictureBox fotoMedico;
+        private TextBox txbSenha;
+        private TextBox txbEmail;
         private Panel panel1;
         private PictureBox pictureBox1;
         private Label label1;
-        private Panel panel10;
-        private Panel panel11;
-        private Panel panel12;
-        private Panel panel13;
-        private Panel panel14;
-        private Panel panel15;
-        private Panel panel16;
-        private Panel panel17;
+        private Panel panel18;
+        private Panel panel19;
+        private Panel panel20;
+        private Panel panel21;
+        private Panel panel22;
+        private Panel panel23;
+        private Panel panel24;
+        private Panel panel25;
+        private Label label4;
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
@@ -406,6 +583,14 @@
         private Panel panel8;
         private Panel panel9;
         private Label label3;
+        private Panel panel10;
+        private Panel panel11;
+        private Panel panel12;
+        private Panel panel13;
+        private Panel panel14;
+        private Panel panel15;
+        private Panel panel16;
+        private Panel panel17;
         private Label label2;
     }
 }

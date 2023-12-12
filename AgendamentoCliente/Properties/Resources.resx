@@ -124,6 +124,9 @@
   <data name="telaLogin2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\telaLogin2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="removerMedicoPrincipal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\removerMedicoPrincipal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="TelaMenu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TelaMenu1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,17 +139,29 @@
   <data name="telaLogin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\telaLogin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cadastraMedicoPrincipal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cadastraMedicoPrincipal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cadastraPacientePrincipal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cadastraPacientePrincipal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="telaDesmarcaPaciente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\telaDesmarcaPaciente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="listaPacientePrincipal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\listaPacientePrincipal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="telaAgendamento" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\telaAgendamento.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnEntrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnEntrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="telaLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\telaLogin3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="telaMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\telaMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnPrincipal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnPrincipal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnEntrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnEntrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="atencao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\atencao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,10 +169,22 @@
   <data name="btnPesquisar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnPesquisar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="agendarPrincipal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\agendarPrincipal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="telaLoginPrincipal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\telaLoginPrincipal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="telaRemoveMedico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\telaRemoveMedico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="telaDesmarcaPaciente" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\telaDesmarcaPaciente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="desmarcarPacientePrincipal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\desmarcarPacientePrincipal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="telaMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\telaMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

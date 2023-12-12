@@ -1,8 +1,9 @@
 ﻿using AgendamentoCliente.Models;
+using System.Diagnostics;
 
 namespace AgendamentoCliente.Telas
 {
-    public partial class CadastraMedico : Form
+    public partial class EditaMedico : Form
     {
         private Point startPoint;
         private Rectangle selectionRectangle;
@@ -14,8 +15,10 @@ namespace AgendamentoCliente.Telas
         private PointF imageLocation = new PointF(0, 0);
         private float zoomFactor = 1.0F;
         private Image imagemMedico;
+        private long id;
+        private Usuario u;
 
-        public CadastraMedico()
+        public EditaMedico(long id, Usuario u)
         {
             InitializeComponent();
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
@@ -24,7 +27,29 @@ namespace AgendamentoCliente.Telas
             fotoMedico.Region = rg;
 
             fotoMedico.MouseWheel += new MouseEventHandler(fotoMedico_MouseWheel);
-            this.AutoScroll = true;
+            this.id = id;
+            this.u = u;
+
+            txbNomeMedico.Text = u.medico.NomeCompleto;
+            txbEmail.Text = u.email;
+            txbSenha.Text = u.password;
+
+
+            using (var ms = new MemoryStream(u.medico.Foto))
+            {
+                imagemMedico = Image.FromStream(ms);
+            }
+
+            try
+            {
+                fotoMedico.Image = imagemMedico;
+                fotoMedico.Invalidate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível abrir a imagem");
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -47,25 +72,25 @@ namespace AgendamentoCliente.Telas
             try
             {
 
-                if (nome.Length <= 0 || email.Length <= 0 || senha.Length <= 0)
-                {
-                    throw new Exception();
-                }
-
                 Bitmap bmp = GetModifiedImage();
 
                 using (var ms = new MemoryStream())
                 {
-                    bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    ms.Position = 0;
-                    StreamContent fileContent = new StreamContent(ms);
-                    formData.Add(fileContent, "foto", fotoMedico.Name);
 
-                    formData.Add(new StringContent(nome), "nomeCompleto");
-                    formData.Add(new StringContent(email), "email");
-                    formData.Add(new StringContent(senha), "senha");
+                    if (bmp != null)
+                    {
+                        bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        ms.Position = 0;
+                        StreamContent fileContent = new StreamContent(ms);
+                        formData.Add(fileContent, "foto", fotoMedico.Name);
 
-                    HttpResponseMessage response = await httpClient.PostAsync(Utils.GetIp("/api/v1/usuario/form-medico"), formData);
+
+                    }
+                    if (nome.Length > 0) formData.Add(new StringContent(nome), "nomeCompleto");
+                    if (email.Length > 0) formData.Add(new StringContent(email), "email");
+                    if (senha.Length > 0) formData.Add(new StringContent(senha), "senha");
+
+                    HttpResponseMessage response = await httpClient.PutAsync(Utils.GetIp("/api/v1/usuario/medico/" + id), formData);
                     if (!response.IsSuccessStatusCode)
                     {
                         MessageBox.Show("Não foi possível cadastrar, verifique se há algum campo vazio");
@@ -118,11 +143,9 @@ namespace AgendamentoCliente.Telas
 
         private void fotoMedico_MouseDown(object sender, MouseEventArgs e)
         {
-
             dragging = true;
             dragStartPoint = e.Location;
             imageStartPoint = imageLocation;
-
         }
 
         private void fotoMedico_MouseUp(object sender, MouseEventArgs e)
@@ -186,27 +209,29 @@ namespace AgendamentoCliente.Telas
         {
             Bitmap bmp = new Bitmap(fotoMedico.Width, fotoMedico.Height);
 
+            if (imagemMedico == null) return null;
+
             using (Graphics g = Graphics.FromImage(bmp))
             {
-                if (imagemMedico != null) g.DrawImage(imagemMedico, new RectangleF(imageLocation.X, imageLocation.Y, imagemMedico.Width * zoomFactor, imagemMedico.Height * zoomFactor));
-                else
-                {
-                    throw new Exception();
-                }
+                g.DrawImage(imagemMedico, new RectangleF(imageLocation.X, imageLocation.Y, imagemMedico.Width * zoomFactor, imagemMedico.Height * zoomFactor));
             }
 
             return bmp;
         }
 
-        private void CadastraMedico_Load(object sender, EventArgs e)
+        private void fotoMedico_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txbNomeMedico_TextChanged(object sender, EventArgs e)
+        private void EditaMedico_Load(object sender, EventArgs e)
         {
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

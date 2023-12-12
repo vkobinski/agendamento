@@ -17,6 +17,17 @@
         public DateOnly DataNascimento { get; set; }
         public bool ativo { get; set; }
     }
+    public class Usuario
+    {
+        public long idUsuario { get; set; }
+
+        public string email { get; set; }
+
+        public string password { get; set; }
+
+        public Medico medico { get; set; }
+
+    }
 
     public class Atendimento
     {

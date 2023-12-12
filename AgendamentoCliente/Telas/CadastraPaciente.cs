@@ -1,4 +1,7 @@
-﻿namespace AgendamentoCliente.Telas
+﻿using AgendamentoCliente.Models;
+using System.Globalization;
+
+namespace AgendamentoCliente.Telas
 {
     public partial class CadastraPaciente : Form
     {
@@ -9,67 +12,74 @@
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Close();
-            Telas.Menu m = new Telas.Menu();
-            m.Show();
+            MenuSingleton.Instance.Menu.Visible = true;
+            this.Close();
         }
 
         private async Task enviarForm()
         {
             var nome = txbNomePaciente.Text;
+            CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
+            TextInfo textInfo = cultureInfo.TextInfo;
+            nome = textInfo.ToTitleCase(nome);
             var dataPaciente = dataNascimento.Value;
-            var dataFormulario = dataPaciente.ToString().Split(" ")[0];
+            try
+            {
 
-            HttpClient httpClient = new HttpClient();
+                if (nome.Count() == 0) throw new Exception();
 
-            Dictionary<string, string> formData = new Dictionary<string, string>
+                var dataFormulario = dataPaciente.ToString().Split(" ")[0];
+                if (dataFormulario.ToString().Equals(DateTime.Today.ToString().Split(" ")[0])) throw new Exception();
+
+                HttpClient httpClient = new HttpClient();
+
+                Dictionary<string, string> formData = new Dictionary<string, string>
         {
             { "nomeCompleto",  nome},
             { "dataNascimento", dataFormulario },
         };
-            var content = new FormUrlEncodedContent(formData);
-            try
-            {
+                var content = new FormUrlEncodedContent(formData);
+
+
                 // Send POST request to API endpoint
-                HttpResponseMessage response = await httpClient.PostAsync("http://localhost:8080/api/v1/paciente/form", content);
+                HttpResponseMessage response = await httpClient.PostAsync(Utils.GetIp("/api/v1/paciente/form"), content);
 
                 // Check response status
-                if (response.IsSuccessStatusCode)
+                if (!response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine("Form data sent successfully.");
+                    MessageBox.Show("Não foi possível cadastrar, verifique se há algum campo vazio");
                 }
                 else
                 {
-                    Console.WriteLine("Failed to send form data. Response status: " + response.StatusCode);
+                    MenuSingleton.Instance.Menu.Visible = true;
+                    Close();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                MessageBox.Show("Não foi possível cadastrar, verifique se há algum campo vazio");
             }
         }
 
         private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
             enviarForm();
-            Close();
-            Telas.Menu m = new Telas.Menu();
-            m.Show();
         }
 
-        private void dataNascimento_ValueChanged(object sender, EventArgs e)
+        private void CadastraPaciente_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+            MenuSingleton.Instance.MenuVisible();
         }
 
-        private void txbNomePaciente_TextChanged(object sender, EventArgs e)
+        private void dataNascimento_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-        }
-
-        private void CadastraPaciente_Load(object sender, EventArgs e)
-        {
-
+            DateTimePicker dtp = (DateTimePicker)sender;
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                SendKeys.Send("{RIGHT}");
+                e.Handled = true;
+            }
         }
     }
 }
