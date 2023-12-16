@@ -65,7 +65,7 @@ namespace AgendamentoCliente.Telas
 
         private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
-            btnConfirmar.Enabled = true;
+            btnConfirmar.Enabled = false;
             enviarForm();
         }
 
