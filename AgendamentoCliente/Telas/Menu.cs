@@ -275,8 +275,13 @@ namespace AgendamentoCliente.Telas
             DataGridViewCell selectedCell = visualizaPaciente.SelectedRows[0].Cells[0];
             if (!(selectedCell is DataGridViewTextBoxCell) || selectedCell.Value == null) return;
             String idAtendimento = selectedCell.Value.ToString();
-            await desmarcar(idAtendimento);
-            await atualizaTabelaAgendamento();
+                       DialogResult confirm = MessageBox.Show("Deseja desmarcar o agendamento?", "Confirmar", MessageBoxButtons.YesNo);
+
+            if (confirm == DialogResult.Yes)
+            {
+                await desmarcar(idAtendimento);
+                await atualizaTabelaAgendamento();
+            }
 
             //new Telas.DesmarcaPaciente().Show();
             //MenuSingleton.Instance.MenuVisible();
