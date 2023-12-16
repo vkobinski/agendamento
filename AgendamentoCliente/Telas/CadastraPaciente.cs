@@ -47,6 +47,7 @@ namespace AgendamentoCliente.Telas
                 // Check response status
                 if (!response.IsSuccessStatusCode)
                 {
+                    btnConfirmar.Enabled = true;
                     MessageBox.Show("Não foi possível cadastrar, verifique se há algum campo vazio");
                 }
                 else
@@ -57,12 +58,14 @@ namespace AgendamentoCliente.Telas
             }
             catch (Exception ex)
             {
+                    btnConfirmar.Enabled = true;
                 MessageBox.Show("Não foi possível cadastrar, verifique se há algum campo vazio");
             }
         }
 
         private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
+            btnConfirmar.Enabled = true;
             enviarForm();
         }
 
@@ -80,6 +83,11 @@ namespace AgendamentoCliente.Telas
                 SendKeys.Send("{RIGHT}");
                 e.Handled = true;
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

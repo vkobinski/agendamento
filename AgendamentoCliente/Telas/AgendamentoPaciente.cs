@@ -192,6 +192,9 @@ namespace AgendamentoCliente.Telas
 
         private async void btnAgendar_Click(object sender, EventArgs e)
         {
+
+            btnAgendar.Enabled = false;
+
             string nomePaciente = txbNomePaciente.Text;
 
             string dataNascimento = txbNascimento.Text;
@@ -232,12 +235,14 @@ namespace AgendamentoCliente.Telas
                 }
                 else
                 {
+                    btnAgendar.Enabled = true;
                     throw new Exception();
                 }
 
             }
             catch (Exception ex)
             {
+                btnAgendar.Enabled = true;
                 MessageBox.Show("Não foi possível agendar, verifique se há algum campo vazio");
             }
         }

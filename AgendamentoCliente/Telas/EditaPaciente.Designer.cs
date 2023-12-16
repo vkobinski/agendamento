@@ -93,9 +93,9 @@
             label1.ForeColor = Color.FromArgb(1, 140, 241);
             label1.Location = new Point(578, 210);
             label1.Name = "label1";
-            label1.Size = new Size(290, 42);
+            label1.Size = new Size(237, 42);
             label1.TabIndex = 17;
-            label1.Text = "Cadastrar Paciente";
+            label1.Text = "Editar Paciente";
             // 
             // panel2
             // 

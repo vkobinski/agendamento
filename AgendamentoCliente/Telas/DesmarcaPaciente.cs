@@ -62,6 +62,8 @@ namespace AgendamentoCliente.Telas
             string nascimento = dateTimePicker1.Text;
             string dataAtendimento = dateTimePicker2.Text;
 
+            btnDesmarcar.Enabled = false;
+
             enviarForm(nomePaciente, nascimento, dataAtendimento);
             MenuSingleton.Instance.MenuVisible();
             MenuSingleton.Instance.Menu.atualizaTabelaAgendamento();
@@ -85,11 +87,13 @@ namespace AgendamentoCliente.Telas
 
                 if (!response.IsSuccessStatusCode)
                 {
+                    btnDesmarcar.Enabled = false;
                     MessageBox.Show("Não foi possível desmarcar");
                 }
             }
             catch (Exception ex)
             {
+                btnDesmarcar.Enabled = false;
                 MessageBox.Show("Não foi possível desmarcar, verifique se há algum campo vazio!");
             }
 

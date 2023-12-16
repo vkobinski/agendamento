@@ -121,5 +121,10 @@ namespace AgendamentoCliente.Telas
         {
             MenuSingleton.Instance.MenuVisible();
         }
+
+        private void btnRemover_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

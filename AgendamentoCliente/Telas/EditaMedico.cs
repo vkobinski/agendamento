@@ -93,6 +93,7 @@ namespace AgendamentoCliente.Telas
                     HttpResponseMessage response = await httpClient.PutAsync(Utils.GetIp("/api/v1/usuario/medico/" + id), formData);
                     if (!response.IsSuccessStatusCode)
                     {
+                        btnCadastrar.Enabled = true;
                         MessageBox.Show("Não foi possível cadastrar, verifique se há algum campo vazio");
                     }
                     else
@@ -106,12 +107,14 @@ namespace AgendamentoCliente.Telas
             }
             catch (Exception ex)
             {
+                btnCadastrar.Enabled = true;
                 MessageBox.Show("Não foi possível cadastrar, verifique se há algum campo vazio");
             }
         }
 
         private async void btnCadastrar_Click(object sender, EventArgs e)
         {
+            btnCadastrar.Enabled = false;
             await enviarForm();
         }
 
