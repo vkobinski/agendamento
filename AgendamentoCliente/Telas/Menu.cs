@@ -51,6 +51,8 @@ namespace AgendamentoCliente.Telas
 
                 List<Atendimento> atendimentoLista = JsonConvert.DeserializeObject<List<Atendimento>>(v);
 
+                atendimentoLista.RemoveAll(at => { return !at.Ativo; });
+
                 atendimentoLista.ForEach(atendimento =>
                 {
 
@@ -126,14 +128,14 @@ namespace AgendamentoCliente.Telas
 
                 List<Atendimento> atendimentoLista = JsonConvert.DeserializeObject<List<Atendimento>>(v);
 
-                int quantity = atendimentoLista.RemoveAll((atendimento) =>
-                {
-                    DateTime hoje = DateTime.Now;
-                    DateTime diaAtendimento = DateTime.Parse(atendimento.DataAtendimento.Split(" ")[0]);
+                //int quantity = atendimentoLista.RemoveAll((atendimento) =>
+                //{
+                //    DateTime hoje = DateTime.Now;
+                //    DateTime diaAtendimento = DateTime.Parse(atendimento.DataAtendimento.Split(" ")[0]);
 
-                    if (diaAtendimento >= hoje) return false;
-                    return true;
-                });
+                //    if (diaAtendimento >= hoje) return false;
+                //    return true;
+                //});
 
                 atendimentoLista.ForEach(atendimento =>
                 {
@@ -275,7 +277,7 @@ namespace AgendamentoCliente.Telas
             DataGridViewCell selectedCell = visualizaPaciente.SelectedRows[0].Cells[0];
             if (!(selectedCell is DataGridViewTextBoxCell) || selectedCell.Value == null) return;
             String idAtendimento = selectedCell.Value.ToString();
-                       DialogResult confirm = MessageBox.Show("Deseja desmarcar o agendamento?", "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult confirm = MessageBox.Show("Deseja desmarcar o agendamento?", "Confirmar", MessageBoxButtons.YesNo);
 
             if (confirm == DialogResult.Yes)
             {

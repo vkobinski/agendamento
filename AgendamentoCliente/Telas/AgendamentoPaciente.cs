@@ -1,5 +1,6 @@
 ﻿using AgendamentoCliente.Models;
 using Newtonsoft.Json;
+using System.Net;
 
 namespace AgendamentoCliente.Telas
 {
@@ -215,7 +216,7 @@ namespace AgendamentoCliente.Telas
 
                 Dictionary<string, string> formData = new Dictionary<string, string>
         {
-                {"nomePaciente", nomePaciente },
+                {"nomePaciente", nomePaciente.Trim() },
                 {"dataNascimento", dataNascimento },
                 {"nomeMedico", nomeMedico },
                 {"dataHora", data }
@@ -225,6 +226,16 @@ namespace AgendamentoCliente.Telas
 
                 HttpResponseMessage response = await http.PostAsync(Utils.GetIp("/api/v1/atendimento"), content);
                 string stringResponse = await response.Content.ReadAsStringAsync();
+
+                if (response.StatusCode.Equals(HttpStatusCode.BadRequest))
+                {
+                    if (response.Headers.Contains("Pacientes Duplicados"))
+                    {
+                        btnAgendar.Enabled = true;
+                        MessageBox.Show("Não foi possível agendar, há pacientes duplicados!");
+                        return;
+                    }
+                }
 
                 Atendimento atendimento = JsonConvert.DeserializeObject<Atendimento>(stringResponse);
 
@@ -353,5 +364,6 @@ namespace AgendamentoCliente.Telas
                 }
             }
         }
-    }
+
+           }
 }

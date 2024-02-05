@@ -37,5 +37,6 @@
         public Medico Medico { get; set; }
         public string DataAtendimento { get; set; }
         public bool Chegou { get; set; }
+        public bool Ativo { get; set; }
     }
 }

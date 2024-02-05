@@ -1,5 +1,6 @@
 ﻿using AgendamentoCliente.Models;
 using System.Globalization;
+using System.Net;
 
 namespace AgendamentoCliente.Telas
 {
@@ -21,7 +22,7 @@ namespace AgendamentoCliente.Telas
             var nome = txbNomePaciente.Text;
             CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
             TextInfo textInfo = cultureInfo.TextInfo;
-            nome = textInfo.ToTitleCase(nome);
+            nome = textInfo.ToTitleCase(nome).Trim();
             var dataPaciente = dataNascimento.Value;
             try
             {
@@ -44,7 +45,12 @@ namespace AgendamentoCliente.Telas
                 // Send POST request to API endpoint
                 HttpResponseMessage response = await httpClient.PostAsync(Utils.GetIp("/api/v1/paciente/form"), content);
 
-                // Check response status
+                if (response.StatusCode.Equals(HttpStatusCode.BadRequest))
+                {
+                    btnConfirmar.Enabled = true;
+                    MessageBox.Show("Não é possível cadastrar dois pacientes com o exato mesmo nome e data de nascimento.");
+                }
+
                 if (!response.IsSuccessStatusCode)
                 {
                     btnConfirmar.Enabled = true;
@@ -58,7 +64,7 @@ namespace AgendamentoCliente.Telas
             }
             catch (Exception ex)
             {
-                    btnConfirmar.Enabled = true;
+                btnConfirmar.Enabled = true;
                 MessageBox.Show("Não foi possível cadastrar, verifique se há algum campo vazio");
             }
         }

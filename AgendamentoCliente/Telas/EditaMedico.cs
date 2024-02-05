@@ -1,5 +1,4 @@
 ﻿using AgendamentoCliente.Models;
-using System.Diagnostics;
 
 namespace AgendamentoCliente.Telas
 {
