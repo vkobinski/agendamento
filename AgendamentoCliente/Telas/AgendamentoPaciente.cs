@@ -229,10 +229,17 @@ namespace AgendamentoCliente.Telas
 
                 if (response.StatusCode.Equals(HttpStatusCode.BadRequest))
                 {
-                    if (response.Headers.Contains("Pacientes Duplicados"))
+                    if (stringResponse.Contains("Pacientes Duplicados"))
                     {
                         btnAgendar.Enabled = true;
                         MessageBox.Show("Não foi possível agendar, há pacientes duplicados!");
+                        return;
+                    }
+                    if (stringResponse.Contains("ocupado"))
+                    {
+
+                        btnAgendar.Enabled = true;
+                        MessageBox.Show("Esse horário para o profissional está marcado como ocupado!");
                         return;
                     }
                 }
@@ -365,5 +372,5 @@ namespace AgendamentoCliente.Telas
             }
         }
 
-           }
+    }
 }

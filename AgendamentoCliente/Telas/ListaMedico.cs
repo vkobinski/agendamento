@@ -141,5 +141,20 @@ namespace AgendamentoCliente.Telas
             editar(idAtendimento, u);
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (visualizaPaciente.SelectedRows.Count < 1 || visualizaPaciente.SelectedRows[0].Cells.Count < 1) return;
+
+            DataGridViewCell selectedCell = visualizaPaciente.SelectedRows[0].Cells[0];
+
+            if (!(selectedCell is DataGridViewTextBoxCell) || selectedCell.Value == null) return;
+
+            String idAtendimento = selectedCell.Value.ToString();
+
+            new Calendario(Convert.ToInt64(idAtendimento)).Show();
+            this.Visible = false;
+
+        }
     }
 }

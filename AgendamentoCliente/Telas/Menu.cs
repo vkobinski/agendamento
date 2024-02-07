@@ -51,8 +51,6 @@ namespace AgendamentoCliente.Telas
 
                 List<Atendimento> atendimentoLista = JsonConvert.DeserializeObject<List<Atendimento>>(v);
 
-                atendimentoLista.RemoveAll(at => { return !at.Ativo; });
-
                 atendimentoLista.ForEach(atendimento =>
                 {
 

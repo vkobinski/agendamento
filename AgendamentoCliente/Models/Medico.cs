@@ -39,4 +39,15 @@
         public bool Chegou { get; set; }
         public bool Ativo { get; set; }
     }
+
+    public class Disponibilidade
+    {
+
+        public DateOnly Dia { get; set; }
+        public int HoraInicio { get; set; }
+        public int HoraFim { get; set; }
+        public int MinutoInicio { get; set; }
+        public int MinutoFim { get; set; }
+        public bool Atendimento { get; set; }
+    }
 }

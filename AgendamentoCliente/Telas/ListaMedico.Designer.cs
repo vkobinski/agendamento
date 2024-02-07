@@ -43,6 +43,7 @@
             btnVoltar = new Button();
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visualizaPaciente).BeginInit();
@@ -174,7 +175,7 @@
             btnVoltar.FlatStyle = FlatStyle.Flat;
             btnVoltar.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnVoltar.ForeColor = SystemColors.ControlLightLight;
-            btnVoltar.Location = new Point(600, 681);
+            btnVoltar.Location = new Point(600, 757);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(243, 40);
             btnVoltar.TabIndex = 13;
@@ -204,13 +205,28 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(600, 608);
+            button2.Location = new Point(600, 609);
             button2.Name = "button2";
             button2.Size = new Size(243, 40);
             button2.TabIndex = 15;
             button2.Text = "Editar Médico";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.None;
+            button3.BackColor = Color.FromArgb(1, 140, 241);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.ForeColor = SystemColors.ControlLightLight;
+            button3.Location = new Point(600, 683);
+            button3.Name = "button3";
+            button3.Size = new Size(243, 40);
+            button3.TabIndex = 16;
+            button3.Text = "Calendário";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // ListaMedico
             // 
@@ -220,6 +236,7 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1442, 857);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(btnVoltar);
@@ -255,5 +272,6 @@
         private DataGridViewTextBoxColumn senha;
         private DataGridViewTextBoxColumn status;
         private Button button2;
+        private Button button3;
     }
 }
